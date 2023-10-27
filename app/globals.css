@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.background-color-nav {
+  @apply bg-blue-950;
+}
+
+.background-color-nav-btn {
+  @apply bg-blue-950 hover:bg-blue-900;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
