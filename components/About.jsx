@@ -17,7 +17,8 @@ export default function About() {
       >
         <p className="text-lg ml-20">Hi there!</p>
         <p className="text-[80px] font-bold">
-          <span className="text-[40px] font-normal">I'm</span> Ruben Acosta
+          {/* lo del I'm */}
+          <span className="text-[40px] font-normal">Im</span> Ruben Acosta
         </p>
         <p className="text-3xl font-bold ml-12">Front end developer</p>
       </motion.div>
