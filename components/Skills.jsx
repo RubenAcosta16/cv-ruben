@@ -1,3 +1,4 @@
+import {motion} from 'framer-motion'
 
 const skills = [
   {
@@ -132,8 +133,41 @@ export default function Skills() {
         </h2>
 
         {/* cada skill que tenga un tap */}
-        <div className=" flex justify-center items-cente">
+        <div className=" flex justify-center items-center flex-col gap-20">
           {/* insertar una figura diferente asi como en mi cv antiguo */}
+
+          
+
+          {/* levitar */}
+      <div className="relative ">
+        <div
+          className="absolute top-[7px] left-[13px] w-[424px] h-[164px] border-xl rounded-lg"
+          style={{
+            // boxShadow: "13px 15px  rgb(14 116 144)",
+            backgroundColor: "rgb(14 116 144)",
+          }}
+        ></div>
+        <motion.p style={{
+            transformStyle: "preserve-3d",
+          }}
+          initial={{
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          }}
+          animate={{
+            transform: "translateZ(32px) translateY(-8px) translateX(8px)",
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+          }} className="p-3 bg-sky-950 text-xl border-xl text-white rounded-lg w-[424px]">
+            Since I was a teenager I learned to program and design, and it is
+            something I enjoy. My unique point? Learning these technologies has
+            forced me to adapt to different environments.
+          </motion.p>
+      </div>
+
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-10">
             {skills.map((skill, index) => (
               <li

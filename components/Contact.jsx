@@ -2,6 +2,8 @@
 
 import { Input, Textarea } from "@nextui-org/react";
 
+import './gradients.css'
+
 const socialLinks = [
   {
     img: (
@@ -31,8 +33,10 @@ const socialLinks = [
 
 export default function Contact() {
   return (
-    <div className="flex-center">
-      <div className="grid md:grid-cols-2 grid-cols-1 w-[990px] gap-10 md:gap-0 h-[650px] md:h-[410px] px-[70px] py-[50px] bg-slate-600 rounded-2xl">
+    <div className="flex-center lg:-mt-28">
+      {/* <div className="shadow w-40 h-60 dot" style={{boxShadow:"inset 0 0 20px rgba(0, 0, 0, 0.5)"}}></div> */}
+
+      <div className="flex flex-col w-[690px] gap-4 px-[70px] pb-[50px]">
         {/* usar next ui */}
 
         <div className="flex justify-between flex-col gap-5">
@@ -43,26 +47,27 @@ export default function Contact() {
             <p className="text-stone-300">Email: 1511ruben@gmail.com</p>
           </div>
           <ul className="flex flex-row justify-start gap-10">
-            {socialLinks.map((socialLink,index)=>(
-              <li key={index} className="text-[35px]">{socialLink.img}</li>
+            {socialLinks.map((socialLink, index) => (
+              <li key={index} className="text-[35px]">
+                {socialLink.img}
+              </li>
             ))}
           </ul>
         </div>
 
         <div className="flex items-center md:justify-between justify-start gap-5 flex-col">
-          <Input type="Name" variant="faded" label="Name" placeholder="Name" />
+          <Input type="Name" variant="underlined" label="Name"  />
           <Input
             type="email"
-            variant="faded"
+            variant="underlined"
             label="Email"
-            placeholder="Email"
-            className="md:-mt-10"
+            // placeholder="Email"
+            // className="md:-mt-10"
           />
           <Textarea
-            variant="faded"
+            variant="underlined"
             label="Message"
             // labelPlacement="outside"
-            placeholder="Message"
             // description="Enter a concise description of your project."
           />
         </div>

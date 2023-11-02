@@ -19,6 +19,7 @@ export default function Home() {
 
         {/* about me */}
         <About></About>
+        {/* colocar mas texto, cosas que me gusten o nose, el tipico me apasiona */}
         {/* lorem*20 */}
 
         {/* skills */}
@@ -30,7 +31,7 @@ export default function Home() {
         {/* projects */}
         <Projects></Projects>
 
-        <div className="bg-cyan-900 -mt-28 relative flex flex-col pb-20">
+        <div className="bg-cyan-900 -mt-28 md:-mt-16 relative flex flex-col">
           <div className="relative xl:-top-64 lg:-top-52 sm:-top-36 -top-16 z-10 w-full h-20">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
               <path
@@ -45,6 +46,7 @@ export default function Home() {
           <Contact></Contact>
 
           {/* footer */}
+
         </div>
       </div>
     </NextUIProvider>

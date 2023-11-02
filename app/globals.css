@@ -7,7 +7,7 @@
 }
 
 .background-color-nav-btn {
-  @apply bg-blue-950 hover:bg-blue-900;
+  @apply bg-blue-950 ;
 }
 
 .flex-center {

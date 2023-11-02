@@ -1,0 +1,6 @@
+.dot {
+    background-color: #164E63;
+    opacity: 0.8;
+    background-image: radial-gradient(#ffffff 0.65px, #164E63 0.65px);
+    background-size: 13px 13px;
+}

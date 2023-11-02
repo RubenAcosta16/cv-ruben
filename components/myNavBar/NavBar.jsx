@@ -13,13 +13,13 @@ export default function NavBar() {
   return (
     <div className="relative z-30">
       {/* icon button */}
-      <div className="fixed">
+      <div className="shadow-md shadow-black">
         {!isActive ? (
           <motion.div
             onClick={() => {
               setIsActive(true);
             }}
-            className="background-color-nav-btn absolute top-3 right-4 w-14 h-14 flex justify-center items-center rounded-full cursor-pointer z-10"
+            className="background-color-nav-btn fixed top-3 right-4 w-14 h-14 flex justify-center items-center rounded-full cursor-pointer z-10"
             whileHover={{ scale: 1.1 }}
           >
             <svg
@@ -36,7 +36,7 @@ export default function NavBar() {
           </motion.div>
         ) : (
           <motion.div
-            className="background-color-nav-btn absolute top-3 right-4 w-14 h-14 flex justify-center items-center rounded-full  cursor-pointer z-10"
+            className="background-color-nav-btn fixed top-3 right-4 w-14 h-14 flex justify-center items-center rounded-full  cursor-pointer z-10"
             onClick={() => {
               setIsActive(false);
             }}
