@@ -1,4 +1,4 @@
-import Image from "next/image";
+import {Image} from "@nextui-org/react";
 
 export default function projectLink({ project }) {
   const widthImg = 350;
@@ -6,11 +6,11 @@ export default function projectLink({ project }) {
   const heightImg = (9 * widthImg) / 16;
   return (
     <li
-      className={`flex flex-col gap-5 w-[350px] h-[310px] rounded-lg  bg-white`}
-      style={{ boxShadow:"13px 15px  rgb(14 116 144)" }}
+      className={`flex flex-col gap-5 sm:w-[290px] sm:w-[350px] h-[310px] rounded-lg  bg-white z-20`}
+      style={{ boxShadow:"13px 15px  rgb(14 116 144)",border:"1px solid black" }}
 
     >
-      <Image
+      {/* <Image
         className=""
         style={{ borderRadius: "0.5rem 0.5rem 0 0" }}
         src={project.img}
@@ -18,7 +18,18 @@ export default function projectLink({ project }) {
         width={widthImg}
         //   9*medida/16
         height={heightImg}
-      ></Image>
+      ></Image> */}
+      <Image
+      radius="none"
+      isZoomed
+      className="object-contain"
+        style={{ borderRadius: "0.5rem 0.5rem 0 0" }}
+        src={project.img}
+        alt={project.name}
+        width={widthImg}
+        //   9*medida/16
+        height={heightImg}
+    />
       <div className="px-4">
         <p className=" text-xl text-black font-bold">{project.name}</p>
         {/* hacer que cuando le de click me muestre el resto del texto */}

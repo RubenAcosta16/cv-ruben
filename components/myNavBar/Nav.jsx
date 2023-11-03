@@ -1,6 +1,7 @@
 import NavLink from "./NavLink";
 import { motion } from "framer-motion";
 import { useWindowSize } from "react-use";
+import { useState } from "react";
 
 const navItems = [
   { name: "About me", link: "/about" },
@@ -9,12 +10,12 @@ const navItems = [
   { name: "Contact me", link: "/contact" },
 ];
 
-export default function Nav() {
+export default function Nav({ handleChangeTheme, currentTheme }) {
   // 640
 
   const { width, height } = useWindowSize();
 
-  console.log(width-44)
+  console.log(width - 44);
 
   const menuSlide = {
     enter: (h = height) => ({
@@ -50,14 +51,19 @@ export default function Nav() {
   // console.log(width)
 
   // console.log(widthScreen)
+
+
   return (
     <motion.div
       variants={menuSlide}
       initial="initial"
       animate="enter"
       exit="exit"
-      className={`fixed sm:w-1/3 w-full h-full background-color-nav right-0 top-0 flex justify-center items-center `}
+      className={`fixed sm:w-1/3 w-full h-full background-color-nav right-0 top-0 flex flex-col justify-center items-center `}
     >
+      <button onClick={handleChangeTheme}>
+        {currentTheme == "dark" ? "light" : "dark"}
+      </button>
       <ul className="h-1/2 flex flex-col justify-center gap-14 mt-10">
         <div className="text-slate-400 text-xs relative top-8 border-b border-slate-400 pb-2"></div>
 

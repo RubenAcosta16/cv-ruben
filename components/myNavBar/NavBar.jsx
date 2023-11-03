@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { motion } from "framer-motion";
 
 
@@ -9,6 +9,31 @@ import Nav from "./Nav";
 
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false);
+
+  // tema oscuro
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const mediaQueryList = window.matchMedia("(prefers-color-scheme:dark)");
+      if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
+        // return "dark"
+        setTheme("dark");
+      }
+    }
+  }, []);
+
+  function handleChangeTheme() {
+    setTheme((prevTheme) => (prevTheme == "light" ? "dark" : "light"));
+  }
+
+  useEffect(() => {
+    if (theme == "dark") {
+      document.querySelector("html")?.classList.add("dark");
+    } else {
+      document.querySelector("html")?.classList.remove("dark");
+    }
+  }, [theme]);
 
   return (
     <div className="relative z-30">
@@ -59,7 +84,7 @@ export default function NavBar() {
 
 
       <AnimatePresence>
-        {isActive && <Nav></Nav>}
+        {isActive && <Nav handleChangeTheme={handleChangeTheme} currentTheme={theme}></Nav>}
       </AnimatePresence>
     </div>
   );

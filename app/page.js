@@ -15,7 +15,7 @@ export default function Home() {
     <NextUIProvider>
       <div className="">
         {/* responsive falta */}
-        <Navbar></Navbar>
+        {/* <Navbar></Navbar> */}
 
         {/* about me */}
         <About></About>
@@ -31,8 +31,8 @@ export default function Home() {
         {/* projects */}
         <Projects></Projects>
 
-        <div className="bg-cyan-900 -mt-28 md:-mt-16 relative flex flex-col">
-          <div className="relative xl:-top-64 lg:-top-52 sm:-top-36 -top-16 z-10 w-full h-20">
+        <div className="bg-cyan-900 -mt-48 lg:-mt-28  relative flex flex-col">
+          <div className="relative xl:-top-64 lg:-top-52 sm:-top-36 -top-16 z-0 w-full h-20">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
               <path
                 

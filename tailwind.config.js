@@ -17,19 +17,19 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
-  },
-  darkMode: "class",
+  },  // esto es para el modo oscuro
+  darkMode:"class",
   plugins: [
     nextui({
       themes: {
         dark: {
-          colors: {
-            primary: {
-              DEFAULT: "#BEF264",
-              foreground: "#000000",
-            },
-            focus: "#BEF264",
-          },
+          // colors: {
+          //   primary: {
+          //     DEFAULT: "#BEF264",
+          //     foreground: "#000000",
+          //   },
+          //   focus: "#BEF264",
+          // },
         },
       },
     }),

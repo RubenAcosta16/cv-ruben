@@ -1,39 +1,41 @@
 "use client";
 
 import "./about.css";
-import { Poppins } from "@next/font/google";
+import { Poppins, Nunito } from "@next/font/google";
 import { motion } from "framer-motion";
 
 import "./superButton.css";
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
+const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 export default function About() {
   return (
-    <div className="backgroundDot w-full pb-24 flex flex-col justify-center items-center z-0 relative">
-      <div className="z-30 flex flex-col justify-center items-center">
+    <div className="backgroundDot w-full pb-24 lg:pb-32 flex flex-col justify-center items-center z-0 relative text-black">
+      <div className="z-50 xl:z-30 flex flex-col justify-center items-center">
         <motion.div
-          className="p-10 bg-white my-32"
+          className="p-9 bg-white my-32 md:w-auto sm:w-[400px] w-[300px]"
           initial={{ opacity: 0, x: 100 }}
           whileInView={{
             opacity: 1,
             x: 0,
             transition: { once: false, amount: 0.25 },
           }}
+          // style={{backdropFilter: "blur(25px)"}}
           // viewport={{ once: false, amount: 0.25 }}
         >
-          <p className="text-lg ml-20">Hi there!</p>
-          <p className="text-[80px] font-bold">
+          <p className="sm:text-lg text-[13px] ml-20 ">Hi there!</p>
+          <p className={`sm:text-[80px] text-[40px] font-bold ${poppins.className}`}>
             {/* lo del I'm */}
-            <span className="text-[40px] font-normal">Im</span> Ruben Acosta
+            <span className="sm:text-[40px] text-[25px] font-normal">I´m</span> Ruben Acosta
           </p>
-          <p className="text-3xl font-bold ml-12">Front end developer</p>
+          <p className="sm:text-3xl text-[20] font-bold ml-12">Front end developer</p>
         </motion.div>
 
         {/* levitar */}
-        <div className="mb-16 -mt-[70px]   relative ">
+        <div className="mb-16 -mt-[70px] relative ">
           <div
-            className="absolute top-[7px] left-[13px] w-[424px] h-[136px] border-xl rounded-lg"
+            className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[136px] border-xl rounded-lg"
             style={{
               // boxShadow: "13px 15px  rgb(14 116 144)",
               backgroundColor: "rgb(14 116 144)",
@@ -56,7 +58,7 @@ export default function About() {
               duration: 2,
               ease: "easeInOut",
             }}
-            className=" p-3 bg-sky-950 text-xl border-xl text-white rounded-lg w-[424px]"
+            className={`p-3 bg-sky-950 text-xl border-xl text-white font-normal rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
           >
             Hi, one of the things I like the most is to build and design things,
             and with programming I can do all that, that is why I like it.
@@ -64,6 +66,7 @@ export default function About() {
         </div>
       </div>
 
+      {/* figuras flotando */}
       <motion.div
         style={{
           transformStyle: "preserve-3d",
@@ -79,31 +82,30 @@ export default function About() {
           repeatType: "mirror",
           duration: 2,
           ease: "easeInOut",
-          delay:0.5,
+          delay: 0.5,
         }}
-        className="absolute top-[20px] -left-[70px] z-0"
+        className="absolute top-[20px] -left-[70px] z-40"
       >
         <img src="/blob (2).svg" alt="" className="w-[450px] h-[450px]" />
-
       </motion.div>
       <motion.div
         style={{
           transformStyle: "preserve-3d",
         }}
         initial={{
-          transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          transform: "translateZ(32px) translateY(-18px) translateX(18px)",
         }}
         animate={{
-          transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+          transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
         }}
         transition={{
           repeat: Infinity,
           repeatType: "mirror",
           duration: 2,
           ease: "easeInOut",
-          delay:2.5,
+          delay: 1,
         }}
-        className="absolute top-[260px] right-[30px] z-0"
+        className="absolute top-[260px] right-[30px] z-40"
       >
         <img src="/blob (1).svg" alt="" className="w-[350px] h-[350px]" />
       </motion.div>

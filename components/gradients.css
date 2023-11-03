@@ -4,3 +4,18 @@
     background-image: radial-gradient(#ffffff 0.65px, #164E63 0.65px);
     background-size: 13px 13px;
 }
+
+
+input:focus {
+    /* Estilos cuando el input está activo/focado */
+    border: none;
+    /* background-color: #fff; */
+    /* Agrega cualquier otro estilo específico que desees */
+  }
+
+  input:active {
+    /* Estilos cuando el input está activo/focado */
+    border: none;
+    /* background-color: #fff; */
+    /* Agrega cualquier otro estilo específico que desees */
+  }

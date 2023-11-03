@@ -1,26 +1,13 @@
 import ProjectLink from "./projectLink";
+import { motion } from "framer-motion";
+import { Poppins, Nunito } from "@next/font/google";
 
-import './projects.css'
+const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
+
+import "./projects.css";
 
 const arrProjects = [
-  {
-    name: "Amazon 2.0",
-    description:
-      "This is a page imitating the amazon website, including payments, global status usage and login.",
-    img: "/project-1.png",
-  },
-  {
-    name: "Amazon 2.0",
-    description:
-      "This is a page imitating the amazon website, including payments, global status usage and login.",
-    img: "/project-1.png",
-  },
-  {
-    name: "Amazon 2.0",
-    description:
-      "This is a page imitating the amazon website, including payments, global status usage and login.",
-    img: "/project-1.png",
-  },
   {
     name: "Amazon 2.0",
     description:
@@ -37,7 +24,9 @@ const arrProjects = [
 
 export default function projects() {
   return (
-    <div className="p-12 pt-32 pb-44 flex flex-col backgroundCross relative -top-28">
+    <div
+      className={`p-12 pt-32 pb-52 flex flex-col backgroundCross relative -top-44  ${poppins.className} relative`}
+    >
       {/* usar next ui para el carousel */}
       <h1 className="text-[56px] font-extrabold text-center mb-16 text-black relative z-20">
         Projects
@@ -49,6 +38,50 @@ export default function projects() {
           ))}
         </ul>
       </div>
+
+      {/* figuras flotando */}
+      <motion.div
+        style={{
+          transformStyle: "preserve-3d",
+        }}
+        initial={{
+          transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+        }}
+        animate={{
+          transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+        }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "mirror",
+          duration: 2,
+          ease: "easeInOut",
+          delay: 0.5,
+        }}
+        className="absolute top-[470px] lg:top-[330px] left-0 z-10 hidden sm:block"
+      >
+        <img src="/blob (3).svg" alt="" className="w-[450px] h-[450px]" />
+      </motion.div>
+      <motion.div
+        style={{
+          transformStyle: "preserve-3d",
+        }}
+        initial={{
+          transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+        }}
+        animate={{
+          transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+        }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "mirror",
+          duration: 2,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+        className="absolute top-[260px] right-[5%] z-10 hidden sm:block"
+      >
+        <img src="/blob (4).svg" alt="" className="w-[350px] h-[350px]" />
+      </motion.div>
     </div>
   );
 }

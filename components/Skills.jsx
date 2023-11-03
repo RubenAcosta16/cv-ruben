@@ -1,4 +1,9 @@
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
+import { Poppins, Nunito } from "@next/font/google";
+import { ScrollShadow } from "@nextui-org/react";
+
+const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 const skills = [
   {
@@ -113,7 +118,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <div className="flex flex-col relative -top-12">
+    <div className="flex flex-col relative -top-24 ">
       {/* el svg */}
       {/* error caundo esta a menos de 358px */}
       <div className="relative lg:-top-32 sm:-top-14 top-1 z-10 w-full h-20">
@@ -127,7 +132,7 @@ export default function Skills() {
         </svg>
       </div>
 
-      <div className="w-full bg-cyan-900">
+      <div className={`w-full bg-cyan-900 ${poppins.className}`}>
         <h2 className="text-[50px] font-extrabold text-center mb-16 text-white relative z-20">
           Skills
         </h2>
@@ -136,58 +141,80 @@ export default function Skills() {
         <div className=" flex justify-center items-center flex-col gap-20">
           {/* insertar una figura diferente asi como en mi cv antiguo */}
 
-          
-
           {/* levitar */}
-      <div className="relative ">
-        <div
-          className="absolute top-[7px] left-[13px] w-[424px] h-[164px] border-xl rounded-lg"
-          style={{
-            // boxShadow: "13px 15px  rgb(14 116 144)",
-            backgroundColor: "rgb(14 116 144)",
-          }}
-        ></div>
-        <motion.p style={{
-            transformStyle: "preserve-3d",
-          }}
-          initial={{
-            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-          }}
-          animate={{
-            transform: "translateZ(32px) translateY(-8px) translateX(8px)",
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "mirror",
-            duration: 2,
-            ease: "easeInOut",
-          }} className="p-3 bg-sky-950 text-xl border-xl text-white rounded-lg w-[424px]">
-            Since I was a teenager I learned to program and design, and it is
-            something I enjoy. My unique point? Learning these technologies has
-            forced me to adapt to different environments.
-          </motion.p>
-      </div>
+          <div className="relative ">
+            <div
+              className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[164px] border-xl rounded-lg"
+              style={{
+                // boxShadow: "13px 15px  rgb(14 116 144)",
+                backgroundColor: "rgb(14 116 144)",
+              }}
+            ></div>
+            <motion.p
+              style={{
+                transformStyle: "preserve-3d",
+              }}
+              initial={{
+                transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+              }}
+              animate={{
+                transform: "translateZ(32px) translateY(-8px) translateX(8px)",
+              }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "mirror",
+                duration: 2,
+                ease: "easeInOut",
+              }}
+              className={`p-3 bg-sky-950 text-xl border-xl text-white rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
+            >
+              Since I was a teenager I learned to program and design, and it is
+              something I enjoy. My unique point? Learning these technologies
+              has forced me to adapt to different environments.
+            </motion.p>
+          </div>
+          {/* fin levitar */}
 
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-10">
+          <div className="md:block hidden">
+            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-10 ">
+              {skills.map((skill, index) => (
+                <li
+                  key={index}
+                  className="w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-700 px-10 py-6 items-center"
+                >
+                  <span className="text-[45px] ">{skill.img}</span>{" "}
+                  <div>
+                    <span className="text-xl font-semibold text-white">
+                      {skill.name}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <ul className="flex flex-col block md:hidden">
+          <ScrollShadow className="w-[250px] h-[500px]">
             {skills.map((skill, index) => (
               <li
                 key={index}
-                className="w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-700 px-10 py-6 items-center"
+                className="w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-700 px-10 py-6 items-center mb-5"
               >
                 <span className="text-[45px] ">{skill.img}</span>{" "}
                 <div>
-                  <span className="text-xl font-bold text-white">
+                  <span className="text-xl font-semibold text-white">
                     {skill.name}
                   </span>
                 </div>
               </li>
             ))}
+          </ScrollShadow>
           </ul>
         </div>
       </div>
 
       {/* el svg */}
-      <div className="relative -top-[2px]  z-10 w-full h-20">
+      <div className=" z-10 w-full h-20">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
             // fill="#0099ff"

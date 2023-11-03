@@ -2,7 +2,13 @@
 
 import { Input, Textarea } from "@nextui-org/react";
 
-import './gradients.css'
+import { motion } from "framer-motion";
+import { Poppins, Nunito } from "@next/font/google";
+
+const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
+
+import "./gradients.css";
 
 const socialLinks = [
   {
@@ -36,15 +42,19 @@ export default function Contact() {
     <div className="flex-center lg:-mt-28">
       {/* <div className="shadow w-40 h-60 dot" style={{boxShadow:"inset 0 0 20px rgba(0, 0, 0, 0.5)"}}></div> */}
 
-      <div className="flex flex-col w-[690px] gap-4 px-[70px] pb-[50px]">
+      <div
+        className={`flex flex-col w-[690px] gap-4 px-[70px] pb-[50px] ${poppins.className}`}
+      >
         {/* usar next ui */}
 
         <div className="flex justify-between flex-col gap-5">
           <div>
-            <h1 className="text-[56px] font-extrabold text-white relative z-20">
+            <h1 className="text-[56px] font-extrabold text-white relative z-20 mt-3">
               Contact
             </h1>
-            <p className="text-stone-300">Email: 1511ruben@gmail.com</p>
+            <p className="text-stone-300 text-[18px]">
+              Email: 1511ruben@gmail.com
+            </p>
           </div>
           <ul className="flex flex-row justify-start gap-10">
             {socialLinks.map((socialLink, index) => (
@@ -56,19 +66,39 @@ export default function Contact() {
         </div>
 
         <div className="flex items-center md:justify-between justify-start gap-5 flex-col">
-          <Input type="Name" variant="underlined" label="Name"  />
+          <Input
+            type="Name"
+            variant="underlined"
+            label="Name"
+            className="dark text-stone-100"
+            size="lg"
+            // color="primary"
+          />
+          {/* <input
+            type="text"
+            name=""
+            id=""
+            style={{ background: "none" }}
+            className="border-b-3 p-1 pb-0 font-normal text-[19px] text-stone-300 border-stone-800 active:border-none"
+          /> */}
           <Input
             type="email"
             variant="underlined"
             label="Email"
             // placeholder="Email"
             // className="md:-mt-10"
+            className="dark text-stone-300"
+            size="lg"
+            // color="primary"
           />
           <Textarea
             variant="underlined"
             label="Message"
             // labelPlacement="outside"
             // description="Enter a concise description of your project."
+            className="dark text-stone-300"
+            size="lg"
+            // color="primary"
           />
         </div>
       </div>
