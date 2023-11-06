@@ -42,7 +42,7 @@ export default function About() {
         {/* levitar */}
         <div className="mb-16 -mt-[70px] relative ">
           <div
-            className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[136px] border-xl rounded-lg"
+            className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[136px] border-xl rounded-lg "
             style={{
               // boxShadow: "13px 15px  rgb(14 116 144)",
               backgroundColor: "rgb(14 116 144)",

@@ -85,7 +85,7 @@ export default function Skills() {
           {/* levitar */}
           <div className="relative ">
             <div
-              className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[164px] border-xl rounded-lg"
+              className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[108px] border-xl rounded-lg"
               style={{
                 // boxShadow: "13px 15px  rgb(14 116 144)",
                 backgroundColor: "rgb(14 116 144)",
@@ -107,10 +107,9 @@ export default function Skills() {
                 duration: 2,
                 ease: "easeInOut",
               }}
-              className={`p-3 bg-sky-950 dark:bg-sky-900 text-xl border-xl text-white rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
+              className={`p-3 bg-sky-950 dark:bg-sky-900 text-lg border-xl text-white rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
             >
-              Since I was a teenager I learned to program and design, and it is
-              something I enjoy. My unique point? Learning these technologies
+              Since I was a teenager I learned to program and design, and learning these technologies
               has forced me to adapt to different environments.
             </motion.p>
           </div>
@@ -119,11 +118,11 @@ export default function Skills() {
           <div
           //  className="md:block hidden"
            >
-            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-10 ">
+            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-10 px-4">
               {skills.map((skill, index) => (
                 <li
                   key={index}
-                  className="min-w-[100px] sm:w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-800 dark:bg-cyan-900 px-10 py-6 items-center"
+                  className="min-w-[100px] sm:w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center"
                 >
                   {/* <span className="text-[25px] sm:text-[45px] ">{skill.img}</span>{" "} */}
                   <img className="w-[25px] sm:w-[45px]" src={skill.img} alt="" />

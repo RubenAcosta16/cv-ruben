@@ -38,7 +38,7 @@ export default function NavBar() {
   return (
     <div className="relative z-30">
       {/* icon button */}
-      {/* <div className="shadow-md shadow-black">
+      <div className="shadow-md shadow-black">
         {!isActive ? (
           <motion.div
             onClick={() => {
@@ -80,7 +80,7 @@ export default function NavBar() {
             </svg>
           </motion.div>
         )}
-      </div> */}
+      </div>
 
 
       <AnimatePresence>

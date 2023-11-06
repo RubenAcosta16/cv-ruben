@@ -15,7 +15,7 @@ export default function Home() {
     <NextUIProvider>
       <div className="">
         {/* responsive falta */}
-        {/* <Navbar></Navbar> */}
+        <Navbar></Navbar>
 
         {/* about me */}
         <About></About>

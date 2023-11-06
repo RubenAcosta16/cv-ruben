@@ -19,11 +19,11 @@
 } */
 /* #05202B */
 
-
+/* #062936 */
 .bg-waves{
-  @apply bg-cyan-800 dark:bg-[#062936];
+  @apply bg-cyan-800 dark:bg-[#061f36];
 }
 
 .fill-waves{
-  @apply fill-cyan-800 dark:fill-[#062936];
+  @apply fill-cyan-800 dark:fill-[#061f36];
 }
