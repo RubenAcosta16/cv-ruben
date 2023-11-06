@@ -123,7 +123,7 @@ export default function Skills() {
               {skills.map((skill, index) => (
                 <li
                   key={index}
-                  className="min-w-[130px] sm:w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-800 dark:bg-cyan-900 px-10 py-6 items-center"
+                  className="min-w-[100px] sm:w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-800 dark:bg-cyan-900 px-10 py-6 items-center"
                 >
                   {/* <span className="text-[25px] sm:text-[45px] ">{skill.img}</span>{" "} */}
                   <img className="w-[25px] sm:w-[45px]" src={skill.img} alt="" />
