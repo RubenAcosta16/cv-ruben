@@ -1,6 +1,7 @@
 .backgroundDot {
-    background: radial-gradient(circle, #4f46e4 10%, transparent 11%);
+    background: radial-gradient(circle, #221bb4 10%, transparent 11%);
     background-size: 2em 2em;
     background-color: #ffffff;
     opacity: 1
 }
+

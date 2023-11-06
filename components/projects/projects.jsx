@@ -13,22 +13,24 @@ const arrProjects = [
     description:
       "This is a page imitating the amazon website, including payments, global status usage and login.",
     img: "/project-1.png",
+    url:"https://amazon-2-0-nextjs-r.vercel.app/"
   },
   {
     name: "Amazon 2.0",
     description:
       "This is a page imitating the amazon website, including payments, global status usage and login.",
     img: "/project-1.png",
+    url:"https://amazon-2-0-nextjs-r.vercel.app/"
   },
 ];
 
 export default function projects() {
   return (
     <div
-      className={`p-12 pt-32 pb-52 flex flex-col backgroundCross relative -top-44  ${poppins.className} relative`}
+      className={`p-12 pt-32 pb-52 flex flex-col backgroundCross dark:bg-slate-900 relative -top-44  ${poppins.className} relative`}
     >
       {/* usar next ui para el carousel */}
-      <h1 className="text-[56px] font-extrabold text-center mb-16 text-black relative z-20">
+      <h1 className="text-[56px] font-extrabold text-center mb-16 text-black dark:text-slate-100 relative z-20">
         Projects
       </h1>
       <div className="flex-center">

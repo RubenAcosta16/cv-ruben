@@ -13,3 +13,17 @@
 .flex-center {
   @apply flex justify-center items-center;
 }
+
+/* body{
+  background: rgb(5, 32, 43)
+} */
+/* #05202B */
+
+
+.bg-waves{
+  @apply bg-cyan-800 dark:bg-[#062936];
+}
+
+.fill-waves{
+  @apply fill-cyan-800 dark:fill-[#062936];
+}

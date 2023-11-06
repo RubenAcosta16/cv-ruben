@@ -1,32 +1,7 @@
 .backgroundCross {
   background-color: #ffffff;
   opacity: 1;
-  background: radial-gradient(
-      circle,
-      transparent 20%,
-      #ffffff 20%,
-      #ffffff 80%,
-      transparent 80%,
-      transparent
-    ),
-    radial-gradient(
-        circle,
-        transparent 20%,
-        #ffffff 20%,
-        #ffffff 80%,
-        transparent 80%,
-        transparent
-      )
-      17.5px 17.5px,
-    linear-gradient(
-        #444cf7 1.4000000000000001px,
-        transparent 1.4000000000000001px
-      )
-      0 -0.7000000000000001px,
-    linear-gradient(
-        90deg,
-        #444cf7 1.4000000000000001px,
-        #ffffff 1.4000000000000001px
-      ) -0.7000000000000001px 0;
-  background-size: 35px 35px, 35px 35px, 17.5px 17.5px, 17.5px 17.5px;
+  background-image:  radial-gradient(#221bb4 2px, transparent 2px), radial-gradient(#221bb4 2px, rgba(0,0,0,0) 2px);
+  background-size: 80px 80px;
+  background-position: 0 0,40px 40px;
 }

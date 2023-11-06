@@ -11,10 +11,10 @@ const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 export default function About() {
   return (
-    <div className="backgroundDot w-full pb-24 lg:pb-32 flex flex-col justify-center items-center z-0 relative text-black">
+    <div className="backgroundDot dark:bg-slate-900  w-full pb-24 lg:pb-32 flex flex-col justify-center items-center z-0 relative text-black">
       <div className="z-50 xl:z-30 flex flex-col justify-center items-center">
         <motion.div
-          className="p-9 bg-white my-32 md:w-auto sm:w-[400px] w-[300px]"
+          className="p-9 bg-white dark:bg-slate-900 text-black dark:text-slate-100 my-32 md:w-auto sm:w-[400px] w-[300px]"
           initial={{ opacity: 0, x: 100 }}
           whileInView={{
             opacity: 1,
@@ -58,7 +58,7 @@ export default function About() {
               duration: 2,
               ease: "easeInOut",
             }}
-            className={`p-3 bg-sky-950 text-xl border-xl text-white font-normal rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
+            className={`p-3 bg-sky-950 dark:bg-sky-900 text-xl border-xl text-white font-normal rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
           >
             Hi, one of the things I like the most is to build and design things,
             and with programming I can do all that, that is why I like it.
