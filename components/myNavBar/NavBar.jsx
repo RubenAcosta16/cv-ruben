@@ -40,6 +40,7 @@ export default function NavBar() {
       {/* icon button */}
       <div className="shadow-md shadow-black">
         {!isActive ? (
+          // barras
           <motion.div
             onClick={() => {
               setIsActive(true);
@@ -60,6 +61,7 @@ export default function NavBar() {
             </svg>
           </motion.div>
         ) : (
+          // cruz
           <motion.div
             className="background-color-nav-btn fixed top-3 right-4 w-14 h-14 flex justify-center items-center rounded-full  cursor-pointer z-10"
             onClick={() => {

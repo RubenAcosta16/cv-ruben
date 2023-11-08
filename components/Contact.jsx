@@ -1,7 +1,6 @@
 "use client";
 
-import { Input, Textarea } from "@nextui-org/react";
-
+import { Input, Textarea, Button } from "@nextui-org/react";
 
 import { motion } from "framer-motion";
 import { Poppins, Nunito } from "@next/font/google";
@@ -11,7 +10,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 import "./gradients.css";
 
-import {useRef} from 'react'
+import { useRef, useState } from "react";
 
 const socialLinks = [
   {
@@ -40,31 +39,32 @@ const socialLinks = [
   },
 ];
 
-
-
 export default function Contact() {
-  const formRef = useRef(null)
+  const formRef = useRef(null);
+
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
-  
+
+    setLoading(true);
 
     // console.log(e.target)
-  
-      // const formData = new FormData(e.target);
-  
-      const name = formRef.current.elements.name.value
-      const email = formRef.current.elements.email.value
-      const message = formRef.current.elements.message.value
 
-      const messageForm = {
-        name,
-        email,
-        message,
-      };
-  
-      console.log(messageForm)
-  
+    // const formData = new FormData(e.target);
+
+    const name = formRef.current.elements.name.value;
+    const email = formRef.current.elements.email.value;
+    const message = formRef.current.elements.message.value;
+
+    const messageForm = {
+      name,
+      email,
+      message,
+    };
+
+    // console.log(messageForm)
+
     const res = await fetch("/api/send", {
       method: "POST",
       headers: {
@@ -73,7 +73,17 @@ export default function Contact() {
       body: JSON.stringify(messageForm),
     });
     const data = await res.json();
-    console.log(data);
+    await setLoading(false);
+
+
+    // console.log(data.error);
+    if(data.error==null){
+      formRef.current.elements.name.value=""
+      formRef.current.elements.email.value=""
+      formRef.current.elements.message.value=""
+    }else{
+      console.log(data.error);
+    }
   }
 
   return (
@@ -103,7 +113,10 @@ export default function Contact() {
           </ul>
         </div>
 
-        <form ref={formRef} className="flex items-center md:justify-between justify-start gap-5 flex-col">
+        <form
+          ref={formRef}
+          className="flex items-center md:justify-between justify-start gap-5 flex-col"
+        >
           <Input
             type="Name"
             variant="underlined"
@@ -142,7 +155,18 @@ export default function Contact() {
             // color="primary"
           />
 
-          <button onClick={handleSubmit} type="submit" className="bg-primary hover:bg-sky-500  text-white px-4 py-2 rounded-lg">Send Email</button>
+          {/* <button
+            onClick={handleSubmit}
+            type="submit"
+            className="bg-primary hover:bg-sky-500  text-white px-4 py-2 rounded-lg"
+          >
+            {!loading ? "Send Email" : "loading..."}
+          </button> */}
+
+          <Button onClick={handleSubmit}
+            type="submit" color="primary" isLoading={loading}>
+            Send Email
+          </Button>
         </form>
       </div>
     </div>

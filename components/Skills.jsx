@@ -118,7 +118,7 @@ export default function Skills() {
           <div
           //  className="md:block hidden"
            >
-            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-10 px-4">
+            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4 sm:gap-x-10 px-4">
               {skills.map((skill, index) => (
                 <li
                   key={index}
