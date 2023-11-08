@@ -2,6 +2,7 @@
 
 import { Input, Textarea } from "@nextui-org/react";
 
+
 import { motion } from "framer-motion";
 import { Poppins, Nunito } from "@next/font/google";
 
@@ -9,6 +10,8 @@ const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 import "./gradients.css";
+
+import {useRef} from 'react'
 
 const socialLinks = [
   {
@@ -37,7 +40,42 @@ const socialLinks = [
   },
 ];
 
+
+
 export default function Contact() {
+  const formRef = useRef(null)
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+  
+
+    // console.log(e.target)
+  
+      // const formData = new FormData(e.target);
+  
+      const name = formRef.current.elements.name.value
+      const email = formRef.current.elements.email.value
+      const message = formRef.current.elements.message.value
+
+      const messageForm = {
+        name,
+        email,
+        message,
+      };
+  
+      console.log(messageForm)
+  
+    const res = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(messageForm),
+    });
+    const data = await res.json();
+    console.log(data);
+  }
+
   return (
     <div className="flex-center lg:-mt-28">
       {/* <div className="shadow w-40 h-60 dot" style={{boxShadow:"inset 0 0 20px rgba(0, 0, 0, 0.5)"}}></div> */}
@@ -65,13 +103,14 @@ export default function Contact() {
           </ul>
         </div>
 
-        <div className="flex items-center md:justify-between justify-start gap-5 flex-col">
+        <form ref={formRef} className="flex items-center md:justify-between justify-start gap-5 flex-col">
           <Input
             type="Name"
             variant="underlined"
             label="Name"
             className="dark text-stone-100"
             size="lg"
+            name="name"
             // color="primary"
           />
           {/* <input
@@ -89,6 +128,7 @@ export default function Contact() {
             // className="md:-mt-10"
             className="dark text-stone-300"
             size="lg"
+            name="email"
             // color="primary"
           />
           <Textarea
@@ -98,9 +138,12 @@ export default function Contact() {
             // description="Enter a concise description of your project."
             className="dark text-stone-300"
             size="lg"
+            name="message"
             // color="primary"
           />
-        </div>
+
+          <button onClick={handleSubmit} type="submit" className="bg-primary hover:bg-sky-500  text-white px-4 py-2 rounded-lg">Send Email</button>
+        </form>
       </div>
     </div>
   );
