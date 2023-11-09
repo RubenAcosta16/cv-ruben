@@ -2,7 +2,8 @@
 
 // 1. import `NextUIProvider` component
 import { NextUIProvider } from "@nextui-org/react";
-import {useState} from 'react'
+import { useState } from "react";
+import { useAnimate } from "framer-motion";
 
 import Image from "next/image";
 import Navbar from "../components/myNavBar/NavBar";
@@ -12,12 +13,26 @@ import Projects from "../components/projects/projects";
 import Contact from "../components/Contact";
 
 export default function Home() {
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState("light");
+  const [scope, animate] = useAnimate();
+
+  async function animations(currentTheme) {
+    await animate(scope.current, { filter: "blur(1.2rem)" }, { duration: 0.7 });
+
+    await animate(scope.current, { opacity: 0.4 }, { duration: 0.5 });
+
+    setTheme(currentTheme);
+
+    await animate(scope.current, { opacity: 1 }, { duration: 0.3 });
+    animate(scope.current, { filter: "blur(0)" }, { duration: 0.7 });
+
+    // console.log("si jalaz")
+  }
   return (
     <NextUIProvider>
-      <div className="">
+      <Navbar theme={theme} setTheme={animations}></Navbar>
+      <div className="" ref={scope}>
         {/* responsive falta */}
-        <Navbar theme={theme} setTheme={setTheme}></Navbar>
 
         {/* about me */}
         <About></About>
