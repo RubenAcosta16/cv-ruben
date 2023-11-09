@@ -15,13 +15,12 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
   const { width, height } = useWindowSize();
 
   // console.log(width - 44);
-  const variableRestarG=50
-  const variableRestarCH=0
+  const variableRestar=44
 
   const menuSlide = {
     enter: (h = height) => ({
       clipPath: `circle(${h * 2 + 200}px at ${
-        width <= 640 ? width - variableRestarCH : (width / 3) - variableRestarG
+        width <= 640 ? width - variableRestar : (width / 3) - variableRestar
       }px 40px)`,
       transition: {
         duration: 0.8,
@@ -30,7 +29,7 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
     }),
     initial: {
       clipPath: `circle(30px at ${
-        width <= 640 ? width - variableRestarCH : (width / 3) - variableRestarG
+        width <= 640 ? width - variableRestar : (width / 3) - variableRestar
       }px 40px)`,
       transition: {
         duration: 0.8,
@@ -39,7 +38,7 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
     },
     exit: {
       clipPath: `circle(30px at ${
-        width <= 640 ? width - variableRestarCH : (width / 3) - variableRestarG
+        width <= 640 ? width - variableRestar : (width / 3) - variableRestar
       }px 40px)`,
       transition: {
         duration: 0.8,
