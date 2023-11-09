@@ -88,29 +88,29 @@ export default function Contact() {
       email,
       message,
     };
-
+    messageSuccess("Email has send");
     // console.log(messageForm)
 
-    const res = await fetch("/api/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(messageForm),
-    });
-    const data = await res.json();
-    await setLoading(false);
+    // const res = await fetch("/api/send", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(messageForm),
+    // });
+    // const data = await res.json();
+    // await setLoading(false);
 
-    // console.log(data.error);
-    if (data.error == null) {
-      formRef.current.elements.name.value = "";
-      formRef.current.elements.email.value = "";
-      formRef.current.elements.message.value = "";
-      messageSuccess("Email has send");
-    } else {
-      console.log(data.error);
-      messageError("Email wasn´t send");
-    }
+    // // console.log(data.error);
+    // if (data.error == null) {
+    //   formRef.current.elements.name.value = "";
+    //   formRef.current.elements.email.value = "";
+    //   formRef.current.elements.message.value = "";
+    //   messageSuccess("Email has send");
+    // } else {
+    //   console.log(data.error);
+    //   messageError("Email wasn´t send");
+    // }
   }
 
   return (
