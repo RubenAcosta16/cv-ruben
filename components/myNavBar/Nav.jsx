@@ -15,7 +15,7 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
 
   const { width, height } = useWindowSize();
 
-  console.log(width - 44);
+  // console.log(width - 44);
 
   const menuSlide = {
     enter: (h = height) => ({
@@ -74,7 +74,7 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
     >
 
       <ul className="h-1/2 flex flex-col justify-center gap-14 mt-10">
-        <button onClick={handleChangeTheme} className="text-[25px] fill-white">
+        <button onClick={handleChangeTheme} className="sm:text-[25px] text-[30px] fill-white absolute top-[29px] left-8">
           {currentTheme == "dark" ? light : dark}
         </button>
         <div className="text-slate-400 text-xs relative top-8 border-b border-slate-400 pb-2"></div>

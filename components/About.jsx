@@ -42,7 +42,7 @@ export default function About() {
         {/* levitar */}
         <div className="mb-16 -mt-[70px] relative ">
           <div
-            className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[136px] border-xl rounded-lg "
+            className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[108px] border-xl rounded-lg "
             style={{
               // boxShadow: "13px 15px  rgb(14 116 144)",
               backgroundColor: "rgb(14 116 144)",
@@ -67,8 +67,8 @@ export default function About() {
             }}
             className={`p-3 bg-sky-950 dark:bg-sky-900 text-xl border-xl text-white font-normal rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
           >
-            Hi, one of the things I like the most is to build and design things,
-            and with programming I can do all that, that is why I like it.
+            Hi, I am a 19 year old programmer, passionate about this world of
+            programming and web application design.
           </motion.p>
         </div>
       </div>

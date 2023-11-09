@@ -2,6 +2,7 @@
 
 // 1. import `NextUIProvider` component
 import { NextUIProvider } from "@nextui-org/react";
+import {useState} from 'react'
 
 import Image from "next/image";
 import Navbar from "../components/myNavBar/NavBar";
@@ -11,11 +12,12 @@ import Projects from "../components/projects/projects";
 import Contact from "../components/Contact";
 
 export default function Home() {
+  const [theme, setTheme] = useState("light")
   return (
     <NextUIProvider>
       <div className="">
         {/* responsive falta */}
-        <Navbar></Navbar>
+        <Navbar theme={theme} setTheme={setTheme}></Navbar>
 
         {/* about me */}
         <About></About>
@@ -42,8 +44,7 @@ export default function Home() {
             </svg>
           </div>
           {/* contact me */}
-          <Contact></Contact>
-
+          <Contact theme={theme}></Contact>
 
           {/* footer */}
         </div>

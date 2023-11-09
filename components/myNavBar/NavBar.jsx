@@ -7,11 +7,11 @@ import { AnimatePresence} from "framer-motion";
 
 import Nav from "./Nav";
 
-export default function NavBar() {
+export default function NavBar({setTheme,theme}) {
   const [isActive, setIsActive] = useState(false);
 
   // tema oscuro
-  const [theme, setTheme] = useState("light");
+  // const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -25,6 +25,7 @@ export default function NavBar() {
 
   function handleChangeTheme() {
     setTheme((prevTheme) => (prevTheme == "light" ? "dark" : "light"));
+    setIsActive(false)
   }
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Poppins, Nunito } from "@next/font/google";
 import { ScrollShadow } from "@nextui-org/react";
-import Image from 'next/image'
+import Image from "next/image";
 
 const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
@@ -109,15 +109,17 @@ export default function Skills() {
               }}
               className={`p-3 bg-sky-950 dark:bg-sky-900 text-lg border-xl text-white rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
             >
-              Since I was a teenager I learned to program and design, and learning these technologies
-              has forced me to adapt to different environments.
+              One of the things I like the most is to build and design things,
+              and with programming I can do all that, that is why I like it.
+              {/* Since I was a teenager I learned to program and design, and learning these technologies
+              has forced me to adapt to different environments. */}
             </motion.p>
           </div>
           {/* fin levitar */}
 
           <div
           //  className="md:block hidden"
-           >
+          >
             <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4 sm:gap-x-10 px-4">
               {skills.map((skill, index) => (
                 <li
@@ -125,7 +127,11 @@ export default function Skills() {
                   className="min-w-[100px] sm:w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center"
                 >
                   {/* <span className="text-[25px] sm:text-[45px] ">{skill.img}</span>{" "} */}
-                  <img className="w-[25px] sm:w-[45px]" src={skill.img} alt="" />
+                  <img
+                    className="w-[25px] sm:w-[45px]"
+                    src={skill.img}
+                    alt=""
+                  />
                   <div>
                     <span className="text-sm sm:text-xl font-semibold text-white">
                       {skill.name}
@@ -135,7 +141,6 @@ export default function Skills() {
               ))}
             </ul>
           </div>
-          
 
           {/* <ul className="flex flex-col block md:hidden">
           <ScrollShadow className="w-[250px] h-[500px]">

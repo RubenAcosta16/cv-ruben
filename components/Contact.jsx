@@ -1,7 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
+
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Input, Textarea, Button } from "@nextui-org/react";
 
@@ -11,6 +13,8 @@ const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 import "./gradients.css";
+
+
 
 const socialLinks = [
   {
@@ -39,36 +43,37 @@ const socialLinks = [
   },
 ];
 
-const messageError = (txt) => {
-  toast.error(txt, {
-    position: "top-right",
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-  });
-};
-
-const messageSuccess = (txt) => {
-  toast.success(txt, {
-    position: "top-right",
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-  });
-};
-
-export default function Contact() {
+export default function Contact({theme}) {
   const formRef = useRef(null);
 
   const [loading, setLoading] = useState(false);
+
+  const messageError = (txt) => {
+    toast.error(txt, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: theme=="light"?"light":"dark",
+    });
+  };
+  
+  const messageSuccess = (txt) => {
+    toast.success(txt, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: theme=="light"?"light":"dark",
+    });
+  };
+
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -88,29 +93,29 @@ export default function Contact() {
       email,
       message,
     };
-    messageSuccess("Email has send");
+    // messageSuccess("Email has send");
     // console.log(messageForm)
 
-    // const res = await fetch("/api/send", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(messageForm),
-    // });
-    // const data = await res.json();
-    // await setLoading(false);
+    const res = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(messageForm),
+    });
+    const data = await res.json();
+    await setLoading(false);
 
-    // // console.log(data.error);
-    // if (data.error == null) {
-    //   formRef.current.elements.name.value = "";
-    //   formRef.current.elements.email.value = "";
-    //   formRef.current.elements.message.value = "";
-    //   messageSuccess("Email has send");
-    // } else {
-    //   console.log(data.error);
-    //   messageError("Email wasn´t send");
-    // }
+    // console.log(data.error);
+    if (data.error == null) {
+      formRef.current.elements.name.value = "";
+      formRef.current.elements.email.value = "";
+      formRef.current.elements.message.value = "";
+      messageSuccess("Email was send");
+    } else {
+      console.log(data.error);
+      messageError("Email wasn´t send");
+    }
   }
 
   return (
@@ -200,18 +205,7 @@ export default function Contact() {
           </Button>
         </form>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      <ToastContainer/>
     </div>
   );
 }
