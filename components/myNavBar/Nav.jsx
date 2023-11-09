@@ -1,7 +1,6 @@
 import NavLink from "./NavLink";
 import { motion } from "framer-motion";
 import { useWindowSize } from "react-use";
-import { useState } from "react";
 
 const navItems = [
   { name: "About me", link: "/about" },
@@ -16,11 +15,12 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
   const { width, height } = useWindowSize();
 
   // console.log(width - 44);
+  const variableRestar=50
 
   const menuSlide = {
     enter: (h = height) => ({
       clipPath: `circle(${h * 2 + 200}px at ${
-        width <= 640 ? width - 60 : (width / 3) - 50
+        width <= 640 ? width - variableRestar : (width / 3) - variableRestar
       }px 40px)`,
       transition: {
         duration: 0.8,
@@ -29,7 +29,7 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
     }),
     initial: {
       clipPath: `circle(30px at ${
-        width <= 640 ? width - 60 : (width / 3) - 50
+        width <= 640 ? width - variableRestar : (width / 3) - variableRestar
       }px 40px)`,
       transition: {
         duration: 0.8,
@@ -38,7 +38,7 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
     },
     exit: {
       clipPath: `circle(30px at ${
-        width <= 640 ? width - 60 : (width / 3) - 50
+        width <= 640 ? width - variableRestar : (width / 3) - variableRestar
       }px 40px)`,
       transition: {
         duration: 0.8,
