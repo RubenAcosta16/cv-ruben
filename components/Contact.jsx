@@ -1,16 +1,16 @@
 "use client";
 
+import { useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+
 import { Input, Textarea, Button } from "@nextui-org/react";
 
 import { motion } from "framer-motion";
 import { Poppins, Nunito } from "@next/font/google";
-
 const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 import "./gradients.css";
-
-import { useRef, useState } from "react";
 
 const socialLinks = [
   {
@@ -38,6 +38,32 @@ const socialLinks = [
     name: "LinkedIn",
   },
 ];
+
+const messageError = (txt) => {
+  toast.error(txt, {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+};
+
+const messageSuccess = (txt) => {
+  toast.success(txt, {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+};
 
 export default function Contact() {
   const formRef = useRef(null);
@@ -75,14 +101,15 @@ export default function Contact() {
     const data = await res.json();
     await setLoading(false);
 
-
     // console.log(data.error);
-    if(data.error==null){
-      formRef.current.elements.name.value=""
-      formRef.current.elements.email.value=""
-      formRef.current.elements.message.value=""
-    }else{
+    if (data.error == null) {
+      formRef.current.elements.name.value = "";
+      formRef.current.elements.email.value = "";
+      formRef.current.elements.message.value = "";
+      messageSuccess("Email has send");
+    } else {
       console.log(data.error);
+      messageError("Email wasn´t send");
     }
   }
 
@@ -163,12 +190,28 @@ export default function Contact() {
             {!loading ? "Send Email" : "loading..."}
           </button> */}
 
-          <Button onClick={handleSubmit}
-            type="submit" color="primary" isLoading={loading}>
+          <Button
+            onClick={handleSubmit}
+            type="submit"
+            color="primary"
+            isLoading={loading}
+          >
             Send Email
           </Button>
         </form>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
