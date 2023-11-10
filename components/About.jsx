@@ -13,16 +13,21 @@ export default function About() {
 
   const [scope, animate] = useAnimate();
 
-  async function animations() {
-    const blobSelected=Math.floor(Math.random()*5)
-    console.log(blobSelected)
 
-    await animate(`#blobs-${blobSelected}`, { opacity:0 }, { duration: 0.5 });
-    await animate(`#blobs-${blobSelected}`, { opacity:1 }, { duration: 0.5,delay:3 });
+  // setInterval(async () => {
+  //   const blobSelected=Math.round(Math.random()*5)
+  //   console.log(blobSelected)
 
-    // animations()
-  }
-  // animations()
+  //   await animate(`#blobs-${blobSelected}`, { opacity:0 }, { duration: 1.5 });
+  //   // await animate(`#blobs-${blobSelected}`, { opacity:1 }, { duration: 1.5,delay:2 });
+
+  //   for (let i = 1; i <= 5; i++) {
+  //     animate(`#blobs-${i}`, { opacity:1 }, { duration: 1.5,delay:2 });
+      
+  //   }
+
+    
+  // }, 5000);
 
 
   return (
