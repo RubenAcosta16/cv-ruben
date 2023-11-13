@@ -2,7 +2,7 @@
 
 import "./about.css";
 import { Poppins, Nunito } from "@next/font/google";
-import { motion,useAnimate } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 
 import "./superButton.css";
 
@@ -10,9 +10,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
 const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 export default function About() {
-
   const [scope, animate] = useAnimate();
-
 
   // setInterval(async () => {
   //   const blobSelected=Math.round(Math.random()*5)
@@ -23,12 +21,10 @@ export default function About() {
 
   //   for (let i = 1; i <= 5; i++) {
   //     animate(`#blobs-${i}`, { opacity:1 }, { duration: 1.5,delay:2 });
-      
+
   //   }
 
-    
   // }, 5000);
-
 
   return (
     <div className="backgroundDot dark:bg-slate-900  w-full pb-24 lg:pb-32 flex flex-col justify-center items-center z-0 relative text-black">
@@ -94,8 +90,9 @@ export default function About() {
       </div>
 
       {/* figuras flotando */}
-      <div ref={scope}>
-        <motion.div id="blobs-1"
+      <div ref={scope} className=" ">
+        <motion.div
+          id="blobs-1"
           style={{
             transformStyle: "preserve-3d",
           }}
@@ -112,12 +109,13 @@ export default function About() {
             ease: "easeInOut",
             delay: 0.5,
           }}
-          className="absolute top-[20px] -left-[70px] z-40"
+          className="absolute top-[20px] -left-[70px] z-40  "
         >
-          <img src="/blob (2).svg" alt="" className="w-[450px] h-[450px]" />
+          <img src="/blob (2).svg" alt="" className="w-[350px] h-[350px]  " />
         </motion.div>
 
-        <motion.div id="blobs-2"
+        <motion.div
+          id="blobs-2"
           style={{
             transformStyle: "preserve-3d",
           }}
@@ -134,20 +132,22 @@ export default function About() {
             ease: "easeInOut",
             delay: 1,
           }}
-          className="absolute top-[260px] right-[30px] z-40"
+          className="absolute top-[260px] right-[30px] z-40  "
         >
-          <img src="/blob (1).svg" alt="" className="w-[350px] h-[350px]" />
+          <img src="/blob (1).svg" alt="" className="w-[350px] h-[350px]  " />
         </motion.div>
 
-        <motion.div id="blobs-3"
+        <motion.div
+          id="blobs-3"
           style={{
             transformStyle: "preserve-3d",
           }}
           initial={{
-            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
           }}
           animate={{
-            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+
           }}
           transition={{
             repeat: Infinity,
@@ -156,20 +156,21 @@ export default function About() {
             ease: "easeInOut",
             delay: 0.5,
           }}
-          className="absolute -top-[10px] left-[270px] z-40 hidden sm:block"
+          className="absolute -top-[10px] left-[270px] z-40 hidden sm:block  "
         >
-          <img src="/blob (3).svg" alt="" className="w-[450px] h-[450px]" />
+          <img src="/blob (3).svg" alt="" className="w-[450px] h-[450px]  " />
         </motion.div>
 
-        <motion.div id="blobs-4"
+        <motion.div
+          id="blobs-4"
           style={{
             transformStyle: "preserve-3d",
           }}
           initial={{
-            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+            transform: "translateZ(10px) translateY(-2px) translateX(-2px)",
           }}
           animate={{
-            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+            transform: "translateZ(42px) translateY(-18px) translateX(18px)",
           }}
           transition={{
             repeat: Infinity,
@@ -178,12 +179,13 @@ export default function About() {
             ease: "easeInOut",
             delay: 0.5,
           }}
-          className="absolute -top-[10px] -right-[20px] z-40 hidden sm:block"
+          className="absolute -top-[10px] -right-[20px] z-40 hidden sm:block  "
         >
-          <img src="/blob.svg" alt="" className="w-[450px] h-[450px]" />
+          <img src="/blob.svg" alt="" className="w-[350px] h-[350px]  " />
         </motion.div>
 
-        <motion.div id="blobs-5"
+        <motion.div
+          id="blobs-5"
           style={{
             transformStyle: "preserve-3d",
           }}
@@ -200,9 +202,9 @@ export default function About() {
             ease: "easeInOut",
             delay: 1,
           }}
-          className="absolute top-[320px] left-[50px] z-40 hidden sm:block"
+          className="absolute top-[320px] left-[50px] z-40 hidden sm:block  "
         >
-          <img src="/blob (4).svg" alt="" className="w-[350px] h-[350px]" />
+          <img src="/blob (4).svg" alt="" className="w-[350px] h-[350px]  " />
         </motion.div>
       </div>
     </div>

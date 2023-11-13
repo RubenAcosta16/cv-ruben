@@ -17,21 +17,21 @@ export default function Home() {
   const [scope, animate] = useAnimate();
 
   async function animations(currentTheme) {
-    await animate(scope.current, { filter: "blur(1rem)" }, { duration: 0.4 });
+    // await animate(scope.current, { filter: "blur(1rem)" }, { duration: 0.4 });
 
-    await animate(scope.current, { opacity: 0.4 }, { duration: 0.3 });
+    // await animate(scope.current, { opacity: 0.4 }, { duration: 0.3 });
 
     setTheme(currentTheme);
 
-    await animate(scope.current, { opacity: 1 }, { duration: 0.2 });
-    animate(scope.current, { filter: "blur(0)" }, { duration: 0.4 });
+    // await animate(scope.current, { opacity: 1 }, { duration: 0.2 });
+    // animate(scope.current, { filter: "blur(0)" }, { duration: 0.4 });
 
     // console.log("si jalaz")
   }
 
   return (
     <NextUIProvider>
-      <Navbar theme={theme} setThemeNavbar={animations} setThemeSystem={setTheme}></Navbar>
+      <Navbar theme={theme} setTheme={setTheme}></Navbar>
       <div className="" ref={scope}>
         {/* responsive falta */}
 

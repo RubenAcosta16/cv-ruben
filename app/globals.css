@@ -27,3 +27,7 @@
 .fill-waves{
   @apply fill-cyan-800 dark:fill-[#061f36];
 }
+
+body{
+  @apply overflow-x-hidden
+}

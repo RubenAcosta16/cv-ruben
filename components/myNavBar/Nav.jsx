@@ -1,5 +1,5 @@
 import NavLink from "./NavLink";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import { useWindowSize } from "react-use";
 
 const navItems = [
@@ -10,17 +10,40 @@ const navItems = [
 ];
 
 export default function Nav({ handleChangeTheme, currentTheme }) {
-  // 640
-
   const { width, height } = useWindowSize();
+  const [scope, animate] = useAnimate();
+
+  // 640
+  async function animations() {
+    if (width <= 640) {
+      handleChangeTheme();
+    } else {
+      await animate(
+        scope.current,
+        { width: "100%" },
+        { duration: 0.4, ease: [0.76, 0, 0.24, 1] }
+      );
+
+      // setTheme(currentTheme);
+      handleChangeTheme();
+
+      await animate(
+        scope.current,
+        { width: width / 3 + "px" },
+        { duration: 0.4, ease: [0.76, 0, 0.24, 1] }
+      );
+    }
+
+    // console.log("si jalaz")
+  }
 
   // console.log(width - 44);
-  const variableRestar=44
+  const variableRestar = 44;
 
   const menuSlide = {
     enter: (h = height) => ({
       clipPath: `circle(${h * 2 + 200}px at ${
-        width <= 640 ? width - variableRestar : (width / 3) - variableRestar
+        width <= 640 ? width - variableRestar : width / 3 - variableRestar
       }px 40px)`,
       transition: {
         duration: 0.8,
@@ -29,7 +52,7 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
     }),
     initial: {
       clipPath: `circle(30px at ${
-        width <= 640 ? width - variableRestar : (width / 3) - variableRestar
+        width <= 640 ? width - variableRestar : width / 3 - variableRestar
       }px 40px)`,
       transition: {
         duration: 0.8,
@@ -38,7 +61,7 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
     },
     exit: {
       clipPath: `circle(30px at ${
-        width <= 640 ? width - variableRestar : (width / 3) - variableRestar
+        width <= 640 ? width - variableRestar : width / 3 - variableRestar
       }px 40px)`,
       transition: {
         duration: 0.8,
@@ -64,27 +87,43 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
     </svg>
   );
 
+  function widthDiv() {
+    if (width <= 640){
+      return {width:"100%"}
+    }else{
+      return { width: width / 3 + "px" };
+    }
+  }
+
   return (
     <motion.div
+      ref={scope}
       variants={menuSlide}
       initial="initial"
       animate="enter"
       exit="exit"
-      className={`fixed sm:w-1/3 w-full h-full background-color-nav right-0 top-0 flex flex-col justify-center items-center `}
+      className={`fixed sm:w-1/3 w-full h-full background-color-nav right-0 top-0 flex flex-col justify-center items-end `}
     >
+      <div
+        style={widthDiv()}
+        className={` relative flex flex-col justify-center items-center `}
+      >
+        <ul className="h-1/2 flex flex-col justify-center gap-14 mt-10">
+          <button
+            onClick={animations}
+            className="sm:text-[25px] text-[30px] fill-white absolute top-[29px] left-8"
+          >
+            {currentTheme == "dark" ? light : dark}
+          </button>
+          <div className="text-slate-400 text-xs relative top-8 border-b border-slate-400 pb-2"></div>
 
-      <ul className="h-1/2 flex flex-col justify-center gap-14 mt-10">
-        <button onClick={handleChangeTheme} className="sm:text-[25px] text-[30px] fill-white absolute top-[29px] left-8">
-          {currentTheme == "dark" ? light : dark}
-        </button>
-        <div className="text-slate-400 text-xs relative top-8 border-b border-slate-400 pb-2"></div>
+          {navItems.map((navItem, index) => (
+            <NavLink key={index} index={index} link={navItem}></NavLink>
+          ))}
 
-        {navItems.map((navItem, index) => (
-          <NavLink key={index} index={index} link={navItem}></NavLink>
-        ))}
-
-        <div className="relative -top-10 border-b border-slate-400 pb-2"></div>
-      </ul>
+          <div className="relative -top-10 border-b border-slate-400 pb-2"></div>
+        </ul>
+      </div>
     </motion.div>
   );
 }

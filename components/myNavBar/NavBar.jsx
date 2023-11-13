@@ -7,7 +7,7 @@ import { AnimatePresence} from "framer-motion";
 
 import Nav from "./Nav";
 
-export default function NavBar({setThemeSystem,setThemeNavbar,theme}) {
+export default function NavBar({setTheme,theme}) {
   const [isActive, setIsActive] = useState(false);
 
   // tema oscuro
@@ -18,13 +18,13 @@ export default function NavBar({setThemeSystem,setThemeNavbar,theme}) {
       const mediaQueryList = window.matchMedia("(prefers-color-scheme:dark)");
       if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
         // return "dark"
-        setThemeSystem("dark");
+        setTheme("dark");
       }
     }
   }, []);
 
   function handleChangeTheme() {
-    setThemeNavbar((prevTheme) => (prevTheme == "light" ? "dark" : "light"));
+    setTheme((prevTheme) => (prevTheme == "light" ? "dark" : "light"));
     setIsActive(false)
   }
 
