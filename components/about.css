@@ -3,5 +3,9 @@
     background-size: 2em 2em;
     background-color: #ffffff;
     opacity: 1
+    /* background-image: url('/_c60e6f1b-4fb4-4cd1-b672-d929f74caa8b.jpg');
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    /* background-size: cover; 
+    background-position: center ; */
 }
 

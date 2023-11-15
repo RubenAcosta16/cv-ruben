@@ -23,6 +23,9 @@ const skills = [
     name: "Java",
     img: "https://cdn-icons-png.flaticon.com/512/5968/5968282.png",
   },
+];
+
+const languages = [
   {
     name: "Bootstrap",
     img: "https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png",
@@ -38,6 +41,10 @@ const skills = [
   {
     name: "Node js",
     img: "https://www.svgrepo.com/show/354119/nodejs-icon.svg",
+  },
+  {
+    name: "Next js",
+    img: "https://static-00.iconduck.com/assets.00/next-js-icon-2048x2048-5dqjgeku.png",
   },
   {
     name: "Framer Motion",
@@ -117,29 +124,24 @@ export default function Skills() {
           </div>
           {/* fin levitar */}
 
-          <div
-          //  className="md:block hidden"
-          >
-            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4 sm:gap-x-10 px-4">
-              {skills.map((skill, index) => (
-                <li
-                  key={index}
-                  className="min-w-[100px] sm:w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center"
-                >
-                  {/* <span className="text-[25px] sm:text-[45px] ">{skill.img}</span>{" "} */}
-                  <img
-                    className="w-[25px] sm:w-[45px]"
-                    src={skill.img}
-                    alt=""
-                  />
-                  <div>
-                    <span className="text-sm sm:text-xl font-semibold text-white">
-                      {skill.name}
-                    </span>
-                  </div>
-                </li>
-              ))}
-            </ul>
+          <div className="flex flex-col gap-y-16">
+            <div className="flex flex-col gap-y-8">
+              <h3 className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className}`}>Languages</h3>
+              <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4 sm:gap-x-10 px-4">
+                {skills.map((skill, index) => (
+                  <LinkSkill key={index} skill={skill}></LinkSkill>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex flex-col gap-y-8">
+              <h3 className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className}`}>Backend and Libraries</h3>
+              <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4 sm:gap-x-10 px-4">
+                {languages.map((language, index) => (
+                  <LinkSkill key={index} skill={language}></LinkSkill>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* <ul className="flex flex-col block md:hidden">
@@ -174,5 +176,19 @@ export default function Skills() {
         </svg>
       </div>
     </div>
+  );
+}
+
+function LinkSkill({ skill }) {
+  return (
+    <li className="min-w-[100px] sm:w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center">
+      {/* <span className="text-[25px] sm:text-[45px] ">{skill.img}</span>{" "} */}
+      <img className="w-[25px] sm:w-[45px]" src={skill.img} alt="" />
+      <div>
+        <span className="text-sm sm:text-xl font-semibold text-white">
+          {skill.name}
+        </span>
+      </div>
+    </li>
   );
 }

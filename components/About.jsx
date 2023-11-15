@@ -3,6 +3,7 @@
 import "./about.css";
 import { Poppins, Nunito } from "@next/font/google";
 import { motion, useAnimate } from "framer-motion";
+import { slideItems, fadeIn } from "../utils/motion";
 
 import "./superButton.css";
 
@@ -31,28 +32,43 @@ export default function About() {
       <div className="z-50 xl:z-30 flex flex-col justify-center items-center">
         <motion.div
           className="p-9 bg-white dark:bg-slate-900 text-black dark:text-slate-100 my-32 md:w-auto sm:w-[400px] w-[300px]"
-          // initial={{ opacity: 0, x: 100 }}
-          // whileInView={{
-          //   opacity: 1,
-          //   x: 0,
-          //   transition: { once: false, amount: 0.25 },
-          // }}
-          // style={{backdropFilter: "blur(25px)"}}
-          // viewport={{ once: false, amount: 0.25 }}
+          initial="hidden"
+          whileInView="show"
+          variants={fadeIn("left", "tween", 0.2, 0.3)}//
         >
-          <p className="sm:text-lg text-[13px] ml-20 ">Hi there!</p>
-          <p
+          <motion.p
+            className="sm:text-lg text-[13px] ml-20 "
+            initial="hidden"
+            whileInView="show"
+            variants={fadeIn("down", "tween", 0.4, 0.3)}
+          >
+            Hi there!
+          </motion.p>
+          <motion.p
             className={`sm:text-[80px] text-[40px] font-bold ${poppins.className}`}
+            initial="hidden"
+            whileInView="show"
+            variants={fadeIn("up", "tween", 0.6, 0.3)}
           >
             {/* lo del I'm */}
-            <span className="sm:text-[40px] text-[25px] font-normal">
+            <motion.span
+              className="sm:text-[40px] text-[25px] font-normal inline-block"
+              initial="hidden"
+              whileInView="show"
+              variants={fadeIn("up", "spring", 0.4, 0.3)}//
+            >
               I´m
-            </span>{" "}
+            </motion.span>{" "}
             Ruben Acosta
-          </p>
-          <p className="sm:text-3xl text-[20] font-bold ml-12">
+          </motion.p>
+          <motion.p
+            className="sm:text-3xl text-[20] font-bold ml-12"
+            initial="hidden"
+            whileInView="show"
+            variants={fadeIn("up", "tween", 0.4, 0.3)}
+          >
             Front end developer
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* levitar */}
@@ -134,10 +150,10 @@ export default function About() {
           }}
           className="absolute top-[260px] right-[30px] z-40  "
         >
-          <img src="/blob (1).svg" alt="" className="w-[350px] h-[350px]  " />
+          <img src="/blob.svg" alt="" className="w-[350px] h-[350px]  " />
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           id="blobs-3"
           style={{
             transformStyle: "preserve-3d",
@@ -205,7 +221,7 @@ export default function About() {
           className="absolute top-[320px] left-[50px] z-40 hidden sm:block  "
         >
           <img src="/blob (4).svg" alt="" className="w-[350px] h-[350px]  " />
-        </motion.div>
+        </motion.div> */}
       </div>
     </div>
   );
