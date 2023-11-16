@@ -37,8 +37,7 @@ export default function About() {
           className="p-9 bg-white dark:bg-slate-900 text-black dark:text-slate-100 my-32 md:w-auto sm:w-[400px] w-[300px]"
           initial="hidden"
 
-          whileInView={width >= 640 ?"show":""}
-          animate={width <= 640 ?"show":""}
+          whileInView="show"
 
           variants={fadeIn("left", "tween", 0.2, 0.3)} //
         >
@@ -120,8 +119,7 @@ export default function About() {
           className="absolute top-[20px] left-0 z-40  "
           initial="hidden"
           // {width <= 640?{}:{}}
-          whileInView={width >= 640 ?"show":""}
-          animate={width <= 640 ?"show":""}
+          whileInView="show"
 
           variants={slideAndRotate("left")}
         >
@@ -153,8 +151,7 @@ export default function About() {
           className="absolute top-[260px] right-[30px] z-40"
           initial="hidden"
 
-          whileInView={width >= 640 ?"show":""}
-          animate={width <= 640 ?"show":""}
+          whileInView="show"
 
           variants={slideAndRotate("right")}
         >
