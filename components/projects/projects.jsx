@@ -15,13 +15,13 @@ const arrProjects = [
     img: "/project-1.png",
     url: "https://amazon-2-0-nextjs-r.vercel.app/",
   },
-  {
-    name: "Amazon 2.0",
-    description:
-      "This is a page imitating the amazon website, including payments, global status usage and login.",
-    img: "/project-1.png",
-    url: "https://amazon-2-0-nextjs-r.vercel.app/",
-  },
+  // {
+  //   name: "Amazon 2.0",
+  //   description:
+  //     "This is a page imitating the amazon website, including payments, global status usage and login.",
+  //   img: "/project-1.png",
+  //   url: "https://amazon-2-0-nextjs-r.vercel.app/",
+  // },
 ];
 
 export default function projects() {
