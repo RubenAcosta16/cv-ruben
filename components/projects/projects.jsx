@@ -27,7 +27,7 @@ const arrProjects = [
 export default function projects() {
   return (
     <div
-      className={`p-12 pt-32 pb-52 flex flex-col backgroundCross dark:bg-slate-900 relative -top-44  ${poppins.className} relative`}
+      className={`p-12 pt-40 pb-52 flex flex-col backgroundCross dark:bg-slate-900 relative -top-44  ${poppins.className} relative`}
     >
       {/* usar next ui para el carousel */}
       <h1 className="text-[56px] font-extrabold text-center mb-16 text-black dark:text-slate-100 relative z-20">
