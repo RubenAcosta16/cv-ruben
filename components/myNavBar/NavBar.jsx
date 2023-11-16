@@ -37,7 +37,7 @@ export default function NavBar({setTheme,theme}) {
   }, [theme]);
 
   return (
-    <div className="relative z-30">
+    <div className="relative z-50">
       {/* icon button */}
       <div className="shadow-md shadow-black">
         {!isActive ? (

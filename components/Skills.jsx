@@ -177,7 +177,7 @@ export default function Skills() {
               </h3>
               <motion.ul
                 // el calc es lo que hace que parezca infinito, debe ser el numero de items*2
-                className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[144px] left-0 w-[calc(100% * 18)] z-30 "
+                className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute sm:top-[134px] top-[104px] left-0 w-[calc(100% * 18)] z-30 "
                 initial={{
                   transform: "translateX(-50%)",
                 }}

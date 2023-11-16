@@ -111,7 +111,7 @@ export default function About() {
         <motion.div
           className="absolute top-[20px] left-0 z-40  "
           initial="hidden"
-          whileInView="show"
+          animate="show"
           variants={slideAndRotate("left")}
         >
           <motion.div
@@ -142,7 +142,7 @@ export default function About() {
         <motion.div
           className="absolute top-[260px] right-[30px] z-40"
           initial="hidden"
-          whileInView="show"
+          animate="show"
           variants={slideAndRotate("right")}
         >
           <motion.div

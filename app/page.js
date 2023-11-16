@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <NextUIProvider>
       <Navbar theme={theme} setTheme={setTheme}></Navbar>
-      <div className="" ref={scope}>
+      <div className="relative" ref={scope}>
         {/* responsive falta */}
 
         {/* about me */}
