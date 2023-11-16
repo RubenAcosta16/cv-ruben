@@ -3,7 +3,8 @@
 import "./about.css";
 import { Poppins, Nunito } from "@next/font/google";
 import { motion, useAnimate } from "framer-motion";
-import { slideItems, fadeIn } from "../utils/motion";
+
+import { slideAndRotate, fadeIn } from "../utils/motion";
 
 import "./superButton.css";
 
@@ -34,40 +35,40 @@ export default function About() {
           className="p-9 bg-white dark:bg-slate-900 text-black dark:text-slate-100 my-32 md:w-auto sm:w-[400px] w-[300px]"
           initial="hidden"
           whileInView="show"
-          variants={fadeIn("left", "tween", 0.2, 0.3)}//
+          variants={fadeIn("left", "tween", 0.2, 0.3)} //
         >
           <motion.p
-            className="sm:text-lg text-[13px] ml-20 "
+            className="sm:text-lg text-[13px] ml-20 text-stone-300"
             initial="hidden"
             whileInView="show"
-            variants={fadeIn("down", "tween", 0.4, 0.3)}
+            variants={fadeIn("down", "tween", 0.6, 0.3)}
           >
             Hi there!
           </motion.p>
-          <motion.p
+          <p
             className={`sm:text-[80px] text-[40px] font-bold ${poppins.className}`}
-            initial="hidden"
-            whileInView="show"
-            variants={fadeIn("up", "tween", 0.6, 0.3)}
+            // initial="hidden"
+            // whileInView="show"
+            // variants={fadeIn("up", "tween", 0.6, 0.3)}
           >
             {/* lo del I'm */}
             <motion.span
-              className="sm:text-[40px] text-[25px] font-normal inline-block"
+              className="sm:text-[40px] text-[25px] font-normal inline-block strongText"
               initial="hidden"
               whileInView="show"
-              variants={fadeIn("up", "spring", 0.4, 0.3)}//
+              variants={fadeIn("up", "spring", 0.4, 0.3)} //
             >
               I´m
             </motion.span>{" "}
             Ruben Acosta
-          </motion.p>
+          </p>
           <motion.p
             className="sm:text-3xl text-[20] font-bold ml-12"
             initial="hidden"
             whileInView="show"
-            variants={fadeIn("up", "tween", 0.4, 0.3)}
+            variants={fadeIn("up", "tween", 0.6, 0.3)}
           >
-            Front end developer
+            Front end <span className="text-sky-500 text-[24px]">developer</span>
           </motion.p>
         </motion.div>
 
@@ -99,8 +100,8 @@ export default function About() {
             }}
             className={`p-3 bg-sky-950 dark:bg-sky-900 text-xl border-xl text-white font-normal rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
           >
-            Hi, I am a 19 year old programmer, passionate about this world of
-            programming and web application design.
+            Hi, I am a 19 year old <span className="strongText">programmer</span>, passionate about this world of
+            programming and <span className="strongText">web application</span> design.
           </motion.p>
         </div>
       </div>
@@ -108,49 +109,64 @@ export default function About() {
       {/* figuras flotando */}
       <div ref={scope} className=" ">
         <motion.div
-          id="blobs-1"
-          style={{
-            transformStyle: "preserve-3d",
-          }}
-          initial={{
-            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-          }}
-          animate={{
-            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "mirror",
-            duration: 2,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-          className="absolute top-[20px] -left-[70px] z-40  "
+          className="absolute top-[20px] left-0 z-40  "
+          initial="hidden"
+          whileInView="show"
+          variants={slideAndRotate("left")}
         >
-          <img src="/blob (2).svg" alt="" className="w-[350px] h-[350px]  " />
+          <motion.div
+            id="blobs-1"
+            style={{
+              transformStyle: "preserve-3d",
+            }}
+            initial={{
+              transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+            }}
+            animate={{
+              transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+            }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "mirror",
+              duration: 2,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
+            className=""
+          >
+            <img src="/blob (2).svg" alt="" className="w-[350px] h-[350px]  " />
+          </motion.div>
         </motion.div>
 
+
         <motion.div
-          id="blobs-2"
-          style={{
-            transformStyle: "preserve-3d",
-          }}
-          initial={{
-            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
-          }}
-          animate={{
-            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "mirror",
-            duration: 2,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute top-[260px] right-[30px] z-40  "
+          className="absolute top-[260px] right-[30px] z-40"
+          initial="hidden"
+          whileInView="show"
+          variants={slideAndRotate("right")}
         >
-          <img src="/blob.svg" alt="" className="w-[350px] h-[350px]  " />
+          <motion.div
+            id="blobs-2"
+            style={{
+              transformStyle: "preserve-3d",
+            }}
+            initial={{
+              transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+            }}
+            animate={{
+              transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+            }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "mirror",
+              duration: 2,
+              ease: "easeInOut",
+              delay: 1,
+            }}
+            className="  "
+          >
+            <img src="/blob.svg" alt="" className="w-[350px] h-[350px]  " />
+          </motion.div>
         </motion.div>
 
         {/* <motion.div

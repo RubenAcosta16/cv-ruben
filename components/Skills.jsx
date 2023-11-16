@@ -3,6 +3,8 @@ import { Poppins, Nunito } from "@next/font/google";
 import { ScrollShadow } from "@nextui-org/react";
 import Image from "next/image";
 
+import { fadeIn, slideAndRotate } from "../utils/motion";
+
 const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
@@ -114,34 +116,93 @@ export default function Skills() {
                 duration: 2,
                 ease: "easeInOut",
               }}
-              className={`p-3 bg-sky-950 dark:bg-sky-900 text-lg border-xl text-white rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
+              className={`z-20 p-3 bg-sky-950 dark:bg-sky-900 text-lg border-xl text-white rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
             >
-              One of the things I like the most is to build and design things,
-              and with programming I can do all that, that is why I like it.
+              One of the things I <span className="strongText">like</span> the
+              most is to build and design things, and with programming{" "}
+              <span className="strongText">I can do all that</span>, that is why
+              I like it.
               {/* Since I was a teenager I learned to program and design, and learning these technologies
               has forced me to adapt to different environments. */}
             </motion.p>
           </div>
           {/* fin levitar */}
 
-          <div className="flex flex-col gap-y-16">
-            <div className="flex flex-col gap-y-8">
-              <h3 className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className}`}>Languages</h3>
-              <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4 sm:gap-x-10 px-4">
+          <div className="flex flex-col gap-y-16 w-full">
+            <div className="flex flex-col gap-y-8 relative">
+              <h3
+                className={`mb-[171px] text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20`}
+              >
+                Languages
+              </h3>
+              <motion.ul
+                // el calc es lo que hace que parezca infinito
+                className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[104px] left-0 w-[calc(100% * 8)] z-20"
+                initial={{
+                  transform: "translateX(0)",
+                }}
+                animate={{
+                  transform: "translateX(-50%)",
+                }}
+                transition={{
+                  repeat: Infinity,
+                  // repeatType: "mirror",
+                  duration: 22,
+                  ease: "linear",
+                }}
+              >
+                <div className="w-[5px] bg-emerald-600 rounded-xl"></div>
                 {skills.map((skill, index) => (
                   <LinkSkill key={index} skill={skill}></LinkSkill>
                 ))}
-              </ul>
-            </div>
+                <div className="w-[5px] bg-emerald-600 rounded-xl"></div>
 
-            <div className="flex flex-col gap-y-8">
-              <h3 className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className}`}>Backend and Libraries</h3>
-              <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4 sm:gap-x-10 px-4">
+                {skills.map((skill, index) => (
+                  <LinkSkill key={index} skill={skill}></LinkSkill>
+                ))}
+              </motion.ul>
+              {/* <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4 sm:gap-x-10 px-4">
+                {skills.map((skill, index) => (
+                  <LinkSkill key={index} skill={skill}></LinkSkill>
+                ))}
+              </ul> */}
+            </div>
+            {/* <Blobs_1></Blobs_1> */}
+
+            <div className="flex flex-col gap-y-8 relative">
+              <h3
+                className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20 mb-[171px]`}
+              >
+                Backend and Libraries
+              </h3>
+              <motion.ul
+                // el calc es lo que hace que parezca infinito, debe ser el numero de items*2
+                className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[104px] left-0 w-[calc(100% * 18)] z-30"
+                initial={{
+                  transform: "translateX(-50%)",
+                }}
+                animate={{
+                  transform: "translateX(0)",
+                }}
+                transition={{
+                  repeat: Infinity,
+                  // repeatType: "mirror",
+                  duration: 44,
+                  ease: "linear",
+                }}
+              >
+                <div className="w-[5px] h-full bg-emerald-600 rounded-xl"></div>
                 {languages.map((language, index) => (
                   <LinkSkill key={index} skill={language}></LinkSkill>
                 ))}
-              </ul>
+                <div className="w-[5px] h-[121px] bg-emerald-600 rounded-xl"></div>
+
+                {languages.map((language, index) => (
+                  <LinkSkill key={index} skill={language}></LinkSkill>
+                ))}
+              </motion.ul>
             </div>
+            <Blobs_2></Blobs_2>
           </div>
 
           {/* <ul className="flex flex-col block md:hidden">
@@ -192,3 +253,243 @@ function LinkSkill({ skill }) {
     </li>
   );
 }
+
+function Blobs_1() {
+  return (
+    <div className="hidden md:block">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={slideAndRotate("left")}
+        className="absolute top-0 -left-36 z-10  "
+      >
+        <motion.div
+          id="blobs-1"
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+          initial={{
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          }}
+          animate={{
+            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+          className=""
+        >
+          <img
+            src="/blob (3).svg"
+            alt=""
+            className="w-[300px] h-[300px]  object-contain"
+          />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={slideAndRotate("right")}
+        className="absolute top-[100px] -right-28 z-10"
+      >
+        <motion.div
+          id="blobs-2"
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+          initial={{
+            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+          }}
+          animate={{
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        >
+          <img
+            src="/blob (4).svg"
+            alt=""
+            className="w-[350px] h-[350px] object-contain "
+          />
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+}
+
+function Blobs_2() {
+  return (
+    <div className="hidden md:block">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={slideAndRotate("left")}
+        className="absolute top-[130px] -left-[50px] z-10  "
+      >
+        <motion.div
+          id="blobs-1"
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+          initial={{
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          }}
+          animate={{
+            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+        >
+          <img
+            src="/blob (1).svg"
+            alt=""
+            className="w-[400px] h-[400px]  object-contain"
+          />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={slideAndRotate("right")}
+        className="absolute top-[360px] right-[30px] z-10    "
+      >
+        <motion.div
+          id="blobs-2"
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+          initial={{
+            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+          }}
+          animate={{
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className=""
+        >
+          <img src="/blob.svg" alt="" className="w-[400px] h-[400px]  " />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={slideAndRotate("left")}
+        className="absolute top-[700px] right-50 z-20"
+      >
+        <motion.div
+          id="blobs-2"
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+          initial={{
+            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+          }}
+          animate={{
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        >
+          <img
+            src="/blob (4).svg"
+            alt=""
+            className="w-[350px] h-[350px] object-contain "
+          />
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+}
+
+// function Blobs_2() {
+//   return (
+//     <div className="hidden md:block">
+//             <motion.div
+//         initial="hidden"
+//         whileInView="show"
+//         variants={slideAndRotate("left")}
+//         className="absolute top-0 -left-36 z-10  "
+//       >
+
+//       </motion.div>
+
+//       <motion.div
+//         id="blobs-1"
+//         style={{
+//           transformStyle: "preserve-3d",
+//         }}
+//         initial={{
+//           transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+//         }}
+//         animate={{
+//           transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+//         }}
+//         transition={{
+//           repeat: Infinity,
+//           repeatType: "mirror",
+//           duration: 2,
+//           ease: "easeInOut",
+//           delay: 0.5,
+//         }}
+//         className="absolute top-[120px] -left-[200px] z-10  "
+//       >
+//         <img
+//           src="/blob (1).svg"
+//           alt=""
+//           className="w-[400px] h-[400px]  object-contain"
+//         />
+//       </motion.div>
+
+//       {/* <motion.div
+//         id="blobs-2"
+//         style={{
+//           transformStyle: "preserve-3d",
+//         }}
+//         initial={{
+//           transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+//         }}
+//         animate={{
+//           transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+//         }}
+//         transition={{
+//           repeat: Infinity,
+//           repeatType: "mirror",
+//           duration: 2,
+//           ease: "easeInOut",
+//           delay: 1,
+//         }}
+//         className="absolute top-[260px] right-[30px] z-10  "
+//       >
+//         <img src="/blob.svg" alt="" className="w-[400px] h-[400px]  " />
+//       </motion.div> */}
+//     </div>
+//   );
+// }

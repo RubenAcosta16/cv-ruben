@@ -129,13 +129,16 @@ export default function Contact({theme}) {
       >
         {/* usar next ui */}
 
-        <div className="flex justify-between flex-col gap-5">
+        <div className="flex justify-between flex-col gap-8">
           <div>
-            <h1 className="text-[56px] font-extrabold text-white relative z-20 mt-3">
+            <h1 className="text-[56px] font-extrabold strongText relative z-20 mt-3">
               Contact
             </h1>
             <p className="text-stone-300 text-[18px]">
               Email: 1511ruben@gmail.com
+            </p>
+            <p className="text-stone-300 text-[18px]">
+              Chihuahua Mexico
             </p>
           </div>
           <ul className="flex flex-row justify-start gap-10">

@@ -111,7 +111,7 @@ export default function Nav({ handleChangeTheme, currentTheme }) {
         <ul className="h-1/2 flex flex-col justify-center gap-14 mt-10">
           <button
             onClick={animations}
-            className="sm:text-[25px] text-[30px] fill-white absolute top-[29px] left-8"
+            className="sm:text-[25px] text-[30px] fill-white absolute -top-[39px]"
           >
             {currentTheme == "dark" ? light : dark}
           </button>

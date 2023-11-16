@@ -31,3 +31,7 @@
 body{
   @apply overflow-x-hidden
 }
+
+.strongText{
+  @apply text-emerald-600 dark:text-emerald-500
+}

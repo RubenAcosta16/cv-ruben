@@ -13,14 +13,14 @@ const arrProjects = [
     description:
       "This is a page imitating the amazon website, including payments, global status usage and login.",
     img: "/project-1.png",
-    url:"https://amazon-2-0-nextjs-r.vercel.app/"
+    url: "https://amazon-2-0-nextjs-r.vercel.app/",
   },
   {
     name: "Amazon 2.0",
     description:
       "This is a page imitating the amazon website, including payments, global status usage and login.",
     img: "/project-1.png",
-    url:"https://amazon-2-0-nextjs-r.vercel.app/"
+    url: "https://amazon-2-0-nextjs-r.vercel.app/",
   },
 ];
 
@@ -43,46 +43,66 @@ export default function projects() {
 
       {/* figuras flotando */}
       <motion.div
-        style={{
-          transformStyle: "preserve-3d",
-        }}
-        initial={{
-          transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-        }}
-        animate={{
-          transform: "translateZ(32px) translateY(-18px) translateX(18px)",
-        }}
-        transition={{
-          repeat: Infinity,
-          repeatType: "mirror",
-          duration: 2,
-          ease: "easeInOut",
-          delay: 0.5,
-        }}
         className="absolute top-[470px] lg:top-[330px] left-0 z-10 hidden sm:block"
-      >
-        <img src="/blob (3).svg" alt="" className="w-[450px] h-[450px]" />
-      </motion.div>
-      <motion.div
-        style={{
-          transformStyle: "preserve-3d",
-        }}
-        initial={{
-          transform: "translateZ(32px) translateY(-18px) translateX(18px)",
-        }}
-        animate={{
-          transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-        }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         transition={{
-          repeat: Infinity,
-          repeatType: "mirror",
-          duration: 2,
-          ease: "easeInOut",
-          delay: 1,
+          duration: .6,
+          delay:0.3
         }}
-        className="absolute top-[260px] right-[5%] z-10 hidden sm:block"
       >
-        <img src="/blob (4).svg" alt="" className="w-[350px] h-[350px]" />
+        <motion.div
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+          initial={{
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          }}
+          animate={{
+            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+          className=""
+        >
+          <img src="/blob (3).svg" alt="" className="w-[450px] h-[450px]" />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        className="absolute top-[260px] right-[5%] z-10 hidden sm:block"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          duration: .6,
+        }}
+      >
+        <motion.div
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+          initial={{
+            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+          }}
+          animate={{
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className=""
+        >
+          <img src="/blob (4).svg" alt="" className="w-[350px] h-[350px]" />
+        </motion.div>
       </motion.div>
     </div>
   );

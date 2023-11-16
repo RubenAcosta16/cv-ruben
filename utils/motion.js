@@ -1,4 +1,4 @@
-export const slideItems = (direction) => ({
+export const slideAndRotate = (direction) => ({
     hidden: {
       x: direction === 'left' ? '-100%' : '100%',
       rotate: 120,
