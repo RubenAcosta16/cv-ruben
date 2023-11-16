@@ -92,7 +92,7 @@ export default function Skills() {
           {/* insertar una figura diferente asi como en mi cv antiguo */}
 
           {/* levitar */}
-          <div className="relative ">
+          <div className="relative z-20">
             <div
               className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[108px] border-xl rounded-lg"
               style={{
@@ -116,7 +116,7 @@ export default function Skills() {
                 duration: 2,
                 ease: "easeInOut",
               }}
-              className={`z-20 p-3 bg-sky-950 dark:bg-sky-900 text-lg border-xl text-white rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
+              className={`p-3 bg-sky-950 dark:bg-sky-900 text-lg border-xl text-white rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
             >
               One of the things I <span className="strongText">like</span> the
               most is to build and design things, and with programming{" "}

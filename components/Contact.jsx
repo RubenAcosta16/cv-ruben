@@ -28,7 +28,7 @@ const socialLinks = [
       </svg>
     ),
     name: "Github",
-    link:""
+    link:"https://github.com/RubenAcosta16"
   },
   { 
     img: (
@@ -144,7 +144,7 @@ export default function Contact({theme}) {
           <ul className="flex flex-row justify-start gap-10">
             {socialLinks.map((socialLink, index) => (
               <motion.li key={index} className="text-[35px]" whileHover={{scale:0.9}}>
-                <a href={socialLink.link} >{socialLink.img}</a>
+                <a href={socialLink.link} target="_blank">{socialLink.img}</a>
               </motion.li>
             ))}
           </ul>
