@@ -129,7 +129,7 @@ export default function Skills() {
           {/* fin levitar */}
 
           <div className="flex flex-col gap-y-16 w-full">
-            <div className="flex flex-col gap-y-8 relative">
+            <div className="flex flex-col gap-y-8 relative overflow-hidden">
               <h3
                 className={`mb-[171px] text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20`}
               >
@@ -137,7 +137,7 @@ export default function Skills() {
               </h3>
               <motion.ul
                 // el calc es lo que hace que parezca infinito
-                className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[104px] left-0 w-[calc(100% * 8)] z-20"
+                className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[104px] left-0 w-[calc(100% * 8)] z-20 "
                 initial={{
                   transform: "translateX(0)",
                 }}
@@ -169,15 +169,15 @@ export default function Skills() {
             </div>
             {/* <Blobs_1></Blobs_1> */}
 
-            <div className="flex flex-col gap-y-8 relative">
+            <div className="flex flex-col gap-y-8 relative overflow-hidden">
               <h3
-                className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20 mb-[171px]`}
+                className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20 mb-[201px]`}
               >
                 Backend and Libraries
               </h3>
               <motion.ul
                 // el calc es lo que hace que parezca infinito, debe ser el numero de items*2
-                className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[104px] left-0 w-[calc(100% * 18)] z-30"
+                className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[144px] left-0 w-[calc(100% * 18)] z-30 "
                 initial={{
                   transform: "translateX(-50%)",
                 }}
@@ -242,7 +242,7 @@ export default function Skills() {
 
 function LinkSkill({ skill }) {
   return (
-    <li className="min-w-[100px] sm:w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center">
+    <li className="w-[120px] sm:w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center">
       {/* <span className="text-[25px] sm:text-[45px] ">{skill.img}</span>{" "} */}
       <img className="w-[25px] sm:w-[45px]" src={skill.img} alt="" />
       <div>
