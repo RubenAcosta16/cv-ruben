@@ -3,6 +3,7 @@
 import "./about.css";
 import { Poppins, Nunito } from "@next/font/google";
 import { motion, useAnimate } from "framer-motion";
+import { useWindowSize } from "react-use";
 
 import { slideAndRotate, fadeIn } from "../utils/motion";
 
@@ -13,6 +14,7 @@ const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 export default function About() {
   const [scope, animate] = useAnimate();
+  const { width, height } = useWindowSize();
 
   // setInterval(async () => {
   //   const blobSelected=Math.round(Math.random()*5)
@@ -34,7 +36,10 @@ export default function About() {
         <motion.div
           className="p-9 bg-white dark:bg-slate-900 text-black dark:text-slate-100 my-32 md:w-auto sm:w-[400px] w-[300px]"
           initial="hidden"
-          whileInView="show"
+
+          whileInView={width >= 640 ?"show":""}
+          animate={width <= 640 ?"show":""}
+          
           variants={fadeIn("left", "tween", 0.2, 0.3)} //
         >
           <motion.p
@@ -68,7 +73,8 @@ export default function About() {
             whileInView="show"
             variants={fadeIn("up", "tween", 0.6, 0.3)}
           >
-            Front end <span className="text-sky-500 text-[24px]">developer</span>
+            Front end{" "}
+            <span className="text-sky-500 text-[24px]">developer</span>
           </motion.p>
         </motion.div>
 
@@ -100,8 +106,10 @@ export default function About() {
             }}
             className={`p-3 bg-sky-950 dark:bg-sky-900 text-xl border-xl text-white font-normal rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
           >
-            Hi, I am a 19 year old <span className="strongText">programmer</span>, passionate about this world of
-            programming and <span className="strongText">web application</span> design.
+            Hi, I am a 19 year old{" "}
+            <span className="strongText">programmer</span>, passionate about
+            this world of programming and{" "}
+            <span className="strongText">web application</span> design.
           </motion.p>
         </div>
       </div>
@@ -111,7 +119,10 @@ export default function About() {
         <motion.div
           className="absolute top-[20px] left-0 z-40  "
           initial="hidden"
-          animate="show"
+          // {width <= 640?{}:{}}
+          whileInView={width >= 640 ?"show":""}
+          animate={width <= 640 ?"show":""}
+
           variants={slideAndRotate("left")}
         >
           <motion.div
@@ -138,11 +149,13 @@ export default function About() {
           </motion.div>
         </motion.div>
 
-
         <motion.div
           className="absolute top-[260px] right-[30px] z-40"
           initial="hidden"
-          animate="show"
+
+          whileInView={width >= 640 ?"show":""}
+          animate={width <= 640 ?"show":""}
+
           variants={slideAndRotate("right")}
         >
           <motion.div
