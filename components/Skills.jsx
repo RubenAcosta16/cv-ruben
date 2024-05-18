@@ -173,7 +173,7 @@ export default function Skills() {
               <h3
                 className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20 mb-[201px]`}
               >
-                Backend and Libraries
+                Libraries
               </h3>
               <motion.ul
                 // el calc es lo que hace que parezca infinito, debe ser el numero de items*2
