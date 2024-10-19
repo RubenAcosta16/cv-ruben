@@ -22,38 +22,60 @@ export default function Nav({ handleChangeTheme, currentTheme, setIsActive }) {
 
   // console.log(status)
 
-  // estaba aqui hover:bg-slate-200 dark:hover:bg-slate-600
-  const itemLi = "  flex-auto hoverDarkModeIcon";
+
   const iconLi = "size-[22px] m-auto";
 
   const shadow = { textShadow: "1px 1px 3px rgba(0,0,0,0.7)" };
 
-  const [navItems, setNavItems] = useState([
+  // const [navItems, setNavItems] = useState([
+  //   {
+  //     name: (
+  //       <li className={`${itemLi} text-zinc-300`}>
+  //         <div className="flex flex-row justify-center items-center gap-[15px]">
+  //           <IoLogOutOutline className={`${iconLi}`} />
+  //           <span className="hidden inline text-[15px] font-medium">Login</span>
+  //         </div>
+  //       </li>
+  //     ),
+  //     link: "/auth/login",
+  //     blank: false,
+  //   },
+
+  //   {
+  //     name: (
+  //       <li className={`${itemLi} text-zinc-300`}>
+  //         <div className="flex flex-row justify-center text-[15px] items-center gap-[15px]">
+  //           Acerca de:
+  //         </div>
+  //       </li>
+  //     ),
+  //     link: "https://rubenacosta.vercel.app/",
+  //     blank: true,
+  //   },
+  // ]);
+
+  const navItems = [
     {
-      name: (
-        <li className={`${itemLi} text-zinc-300`}>
-          <div className="flex flex-row justify-center items-center gap-[15px]">
-            <IoLogOutOutline className={`${iconLi}`} />
-            <span className="hidden inline text-[15px] font-medium">Login</span>
-          </div>
-        </li>
-      ),
+      name: "About me",
       link: "/auth/login",
       blank: false,
     },
-
     {
-      name: (
-        <li className={`${itemLi} text-zinc-300`}>
-          <div className="flex flex-row justify-center text-[15px] items-center gap-[15px]">
-            Acerca de:
-          </div>
-        </li>
-      ),
-      link: "https://rubenacosta.vercel.app/",
-      blank: true,
+      name: "Skills",
+      link: "/auth/login",
+      blank: false,
     },
-  ]);
+    {
+      name: "Projects",
+      link: "/auth/login",
+      blank: false,
+    },
+    {
+      name: "Contact me",
+      link: "/auth/login",
+      blank: false,
+    },
+  ];
 
   // useEffect(() => {
 
@@ -271,7 +293,6 @@ export default function Nav({ handleChangeTheme, currentTheme, setIsActive }) {
               setIsActive={setIsActive}
             ></NavLink>
           ))}
-          
 
           <div className="relative -top-10 border-b border-slate-400 pb-2"></div>
         </ul>
