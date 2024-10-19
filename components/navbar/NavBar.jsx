@@ -6,7 +6,7 @@ import { useClickAway, useWindowSize } from "react-use";
 
 import { AnimatePresence } from "framer-motion";
 
-import useDarkMode from "@/hooks/useDarkMode";
+import useDarkMode from "./useDarkMode";
 
 import { RxCross2 } from "react-icons/rx";
 import { AiOutlineBars } from "react-icons/ai";
@@ -63,7 +63,7 @@ export default function NavBar() {
 
   return (
     <div
-      className={`${poppins.className} py-3 relative flex flex-row justify-between z-40 relative text-zinc-100`}
+      className={`${poppins.className} py-3 relative flex flex-row justify-between z-[60] relative text-zinc-100`}
     >
       {/* icon button */}
       <Link
@@ -86,7 +86,7 @@ export default function NavBar() {
             <AiOutlineBars className="text-[26px]" />
           ) : (
             // cruz
-            <RxCross2 className="size-[26px]"></RxCross2>
+            <RxCross2 className="text-[26px]"></RxCross2>
           )}
           {/* <AiOutlineBars className="text-[26px]" /> */}
         </motion.div>

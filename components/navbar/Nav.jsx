@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 
-import { signOut, useSession } from "next-auth/react";
-import useCurrentUser from "@/hooks/useCurrentUser";
+// import { signOut, useSession } from "next-auth/react";
+// import useCurrentUser from "@/hooks/useCurrentUser";
 
 import NavLink from "./NavLink";
 import { motion, useAnimate } from "framer-motion";
@@ -10,21 +10,20 @@ import { useWindowSize } from "react-use";
 
 import Image from "next/image";
 
-
 import { IoHomeOutline, IoLogOutOutline } from "react-icons/io5";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { FaRegUser } from "react-icons/fa";
 import { FiSun } from "react-icons/fi";
 import { FaRegMoon } from "react-icons/fa6";
 
-export default function Nav({ handleChangeTheme, currentTheme,setIsActive }) {
-  const { status } = useSession();
-  const { currentUser } = useCurrentUser();
+export default function Nav({ handleChangeTheme, currentTheme, setIsActive }) {
+  // const { status } = useSession();
+  // const { currentUser } = useCurrentUser();
 
   // console.log(status)
 
-  const itemLi =
-    " hover:bg-slate-200 dark:hover:bg-slate-600 flex-auto hover:text-pink-600";
+  // estaba aqui hover:bg-slate-200 dark:hover:bg-slate-600
+  const itemLi = "  flex-auto hoverDarkModeIcon";
   const iconLi = "size-[22px] m-auto";
 
   const shadow = { textShadow: "1px 1px 3px rgba(0,0,0,0.7)" };
@@ -33,104 +32,102 @@ export default function Nav({ handleChangeTheme, currentTheme,setIsActive }) {
     {
       name: (
         <li className={`${itemLi} text-zinc-300`}>
-          <div
-            className="flex flex-row justify-center items-center gap-[15px]"
-          >
+          <div className="flex flex-row justify-center items-center gap-[15px]">
             <IoLogOutOutline className={`${iconLi}`} />
             <span className="hidden inline text-[15px] font-medium">Login</span>
           </div>
         </li>
       ),
-      link: "/auth/login",blank:false
+      link: "/auth/login",
+      blank: false,
     },
-    
+
     {
       name: (
         <li className={`${itemLi} text-zinc-300`}>
-          <div
-            className="flex flex-row justify-center text-[15px] items-center gap-[15px]"
-          >
+          <div className="flex flex-row justify-center text-[15px] items-center gap-[15px]">
             Acerca de:
           </div>
         </li>
       ),
-      link: "https://rubenacosta.vercel.app/",blank:true
-    }
+      link: "https://rubenacosta.vercel.app/",
+      blank: true,
+    },
   ]);
 
-  useEffect(() => {
-  
-      if (status === "authenticated") {
-        setNavItems([
-          {
-            name: (
-              <li className={"inline " + itemLi + " flex-auto"}>
-                {/* falta img poner al lado*/}
-                <div className="flex flex-row justify-center items-center gap-[15px]">
-                  {currentUser.image ? (
-                    <Image
-                      src={currentUser.image}
-                      alt="Image preview"
-                      width={30}
-                      height={30}
-                      className="rounded-full relative object-contain"
-                    />
-                  ) : (
-                    <Image
-                      src="/default_user.jpg"
-                      alt="Image preview"
-                      width={30}
-                      height={30}
-                      className="rounded-full relative object-contain"
-                    />
-                  )}
-                  <span className="hidden md:inline text-[15px] line-clamp-1 hover:line-clamp-none" style={shadow}>
-                    {currentUser.username}
-                  </span>
-                </div>
-              </li>
-            ),
-            link: "/editprofile",blank:false
-          },
-          {
-            name: (
-              <li className={`${itemLi} text-zinc-300`}>
-                <div className="flex flex-row justify-start items-center gap-[26px]">
-                  <LuLayoutDashboard className={`${iconLi}  mx-0`} />
-                  <span className="text-[15px]">Dashboard</span>
-                </div>
-              </li>
-            ),
-            link: "/dashboard",blank:false
-          },
-          {
-            name: (
-              <li
-                className={`${itemLi} flex flex-row justify-start items-center gap-[26px] text-zinc-300`}
-                onClick={async () => await signOut()}
-              >
-                <IoLogOutOutline className={`${iconLi} mx-0 rotate-180`} />
-                <span className="text-[15px]">Sign Out</span>
-              </li>
-            ),
-            link: "#",blank:false
-          },
-          {
-            name: (
-              <li className={`${itemLi} text-zinc-300`}>
-                <div
-                  className="flex flex-row justify-center text-[15px] items-center gap-[15px]"
-                >
-                  Acerca de:
-                </div>
-              </li>
-            ),
-            link: "https://rubenacosta.vercel.app/",blank:true
-          }
-        ]);
-      }
+  // useEffect(() => {
 
-  }, [status]);
+  //     if (status === "authenticated") {
+  //       setNavItems([
+  //         {
+  //           name: (
+  //             <li className={"inline " + itemLi + " flex-auto"}>
+  //               {/* falta img poner al lado*/}
+  //               <div className="flex flex-row justify-center items-center gap-[15px]">
+  //                 {currentUser.image ? (
+  //                   <Image
+  //                     src={currentUser.image}
+  //                     alt="Image preview"
+  //                     width={30}
+  //                     height={30}
+  //                     className="rounded-full relative object-contain"
+  //                   />
+  //                 ) : (
+  //                   <Image
+  //                     src="/default_user.jpg"
+  //                     alt="Image preview"
+  //                     width={30}
+  //                     height={30}
+  //                     className="rounded-full relative object-contain"
+  //                   />
+  //                 )}
+  //                 <span className="hidden md:inline text-[15px] line-clamp-1 hover:line-clamp-none" style={shadow}>
+  //                   {currentUser.username}
+  //                 </span>
+  //               </div>
+  //             </li>
+  //           ),
+  //           link: "/editprofile",blank:false
+  //         },
+  //         {
+  //           name: (
+  //             <li className={`${itemLi} text-zinc-300`}>
+  //               <div className="flex flex-row justify-start items-center gap-[26px]">
+  //                 <LuLayoutDashboard className={`${iconLi}  mx-0`} />
+  //                 <span className="text-[15px]">Dashboard</span>
+  //               </div>
+  //             </li>
+  //           ),
+  //           link: "/dashboard",blank:false
+  //         },
+  //         {
+  //           name: (
+  //             <li
+  //               className={`${itemLi} flex flex-row justify-start items-center gap-[26px] text-zinc-300`}
+  //               // onClick={async () => await signOut()}
+  //             >
+  //               <IoLogOutOutline className={`${iconLi} mx-0 rotate-180`} />
+  //               <span className="text-[15px]">Sign Out</span>
+  //             </li>
+  //           ),
+  //           link: "#",blank:false
+  //         },
+  //         {
+  //           name: (
+  //             <li className={`${itemLi} text-zinc-300`}>
+  //               <div
+  //                 className="flex flex-row justify-center text-[15px] items-center gap-[15px]"
+  //               >
+  //                 Acerca de:
+  //               </div>
+  //             </li>
+  //           ),
+  //           link: "https://rubenacosta.vercel.app/",blank:true
+  //         }
+  //       ]);
+  //     }
+
+  // }, [status]);
 
   const { width, height } = useWindowSize();
   const [scope, animate] = useAnimate();
@@ -161,7 +158,7 @@ export default function Nav({ handleChangeTheme, currentTheme,setIsActive }) {
         { duration: 0.4, ease: [0.76, 0, 0.24, 1] }
       );
     }
- 
+
     // console.log("si jalaz")
   }
 
@@ -220,12 +217,18 @@ export default function Nav({ handleChangeTheme, currentTheme,setIsActive }) {
     }
   }
 
-  const btn_mode={
-    initial: { y: -10,opacity:0 },
-    enter: i => ({ y: 0,opacity:1, transition: { duration: 0.2 ,delay:0.2,type: "spring"} }),
-    exit: 
-      i => ({ y: -10,opacity:0, transition: { duration: 0.2 ,delay:0.5,type: "spring"} })
-    , 
+  const btn_mode = {
+    initial: { y: -10, opacity: 0 },
+    enter: (i) => ({
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.2, delay: 0.2, type: "spring" },
+    }),
+    exit: (i) => ({
+      y: -10,
+      opacity: 0,
+      transition: { duration: 0.2, delay: 0.5, type: "spring" },
+    }),
   };
 
   return (
@@ -252,20 +255,23 @@ export default function Nav({ handleChangeTheme, currentTheme,setIsActive }) {
             whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
           >
             <FiSun
-              className={`${iconLi} relative top-[3px] hidden dark:block text-zinc-300 hover:text-pink-600`}
+              className={`${iconLi} relative top-[3px] hidden dark:block text-zinc-300 hoverDarkModeIcon`}
             />
             <FaRegMoon
-              className={`${iconLi} relative top-[3px] block dark:hidden text-zinc-300 hover:text-pink-600`}
+              className={`${iconLi} relative top-[3px] block dark:hidden text-zinc-300 hoverDarkModeIcon`}
             />
           </motion.button>
           <div className="text-slate-400 text-xs relative top-8 border-b border-slate-400 pb-2"></div>
 
           {navItems.map((navItem, index) => (
-            <NavLink key={index} index={index} link={navItem} setIsActive={setIsActive}></NavLink>
+            <NavLink
+              key={index}
+              index={index}
+              link={navItem}
+              setIsActive={setIsActive}
+            ></NavLink>
           ))}
           
-
-      
 
           <div className="relative -top-10 border-b border-slate-400 pb-2"></div>
         </ul>

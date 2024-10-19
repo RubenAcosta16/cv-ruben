@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import { Poppins } from "next/font/google";
 
-import Link from "next/link";
+import Link from "next/link"; 
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["300", "500", "700"] });
 

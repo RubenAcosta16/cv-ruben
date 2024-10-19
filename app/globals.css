@@ -9,8 +9,11 @@
 .background-color-nav-btn {
   @apply bg-blue-950 ;
 }
-            /* dd */
-            /* aa */
+
+.hoverDarkModeIcon{
+  @apply hover:text-sky-400
+}
+
 .flex-center {
   @apply flex justify-center items-center;
 }
