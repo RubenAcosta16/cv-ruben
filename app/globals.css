@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .background-color-nav {
-  @apply bg-blue-950;
+  @apply bg-blue-950; 
 }
 
 .background-color-nav-btn {
   @apply bg-blue-950 ;
 }
-
+ 
 .flex-center {
   @apply flex justify-center items-center;
 }

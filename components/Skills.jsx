@@ -28,14 +28,14 @@ const skills = [
 ];
 
 const languages = [
-  {
-    name: "Bootstrap",
-    img: "https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png",
-  },
-  {
-    name: "Tailwind",
-    img: "https://static-00.iconduck.com/assets.00/tailwind-css-icon-2048x1229-u8dzt4uh.png",
-  },
+  // {
+  //   name: "Bootstrap",
+  //   img: "https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png",
+  // },
+  // {
+  //   name: "Tailwind",
+  //   img: "https://static-00.iconduck.com/assets.00/tailwind-css-icon-2048x1229-u8dzt4uh.png",
+  // },
   {
     name: "React js",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png",
@@ -60,10 +60,10 @@ const languages = [
     name: "MongoDb",
     img: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg",
   },
-  {
-    name: "Stripe",
-    img: "https://cdn.iconscout.com/icon/free/png-256/free-stripe-2-498440.png?f=webp",
-  },
+  // {
+  //   name: "Stripe",
+  //   img: "https://cdn.iconscout.com/icon/free/png-256/free-stripe-2-498440.png?f=webp",
+  // },
 ];
 
 export default function Skills() {
@@ -92,7 +92,7 @@ export default function Skills() {
           {/* insertar una figura diferente asi como en mi cv antiguo */}
 
           {/* levitar */}
-          <div className="relative z-20">
+          <div className="relative z-50">
             <div
               className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[108px] border-xl rounded-lg"
               style={{
@@ -128,100 +128,50 @@ export default function Skills() {
           </div>
           {/* fin levitar */}
 
-          <div className="flex flex-col gap-y-16 w-full">
-            <div className="flex flex-col gap-y-8 relative overflow-hidden">
+          <div className="flex flex-col gap-y-10 w-full">
+          <div className="flex flex-col gap-y-8 relative overflow-hidden w-[80%] mx-auto">
               <h3
-                className={`mb-[171px] text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20`}
+                className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20 mb-[201px]`}
               >
                 Languages
               </h3>
-              <motion.ul
-                // el calc es lo que hace que parezca infinito
-                className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[104px] left-0 w-[calc(100% * 8)] z-20 "
-                initial={{
-                  transform: "translateX(0)",
-                }}
-                animate={{
-                  transform: "translateX(-50%)",
-                }}
-                transition={{
-                  repeat: Infinity,
-                  // repeatType: "mirror",
-                  duration: 22,
-                  ease: "linear",
-                }}
-              >
-                <div className="w-[5px] bg-emerald-600 rounded-xl"></div>
-                {skills.map((skill, index) => (
-                  <LinkSkill key={index} skill={skill}></LinkSkill>
-                ))}
-                <div className="w-[5px] bg-emerald-600 rounded-xl"></div>
 
-                {skills.map((skill, index) => (
-                  <LinkSkill key={index} skill={skill}></LinkSkill>
+              <MineScrollShadowMotion>
+                {" "}
+                <div className="w-[5px] h-full bg-emerald-600 rounded-xl"></div>
+                {skills.map((language, index) => (
+                  <LinkSkill key={index} skill={language}></LinkSkill>
                 ))}
-              </motion.ul>
-              {/* <ul className="grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4 sm:gap-x-10 px-4">
-                {skills.map((skill, index) => (
-                  <LinkSkill key={index} skill={skill}></LinkSkill>
+                <div className="w-[5px] h-[121px] bg-emerald-600 rounded-xl"></div>
+                {skills.map((language, index) => (
+                  <LinkSkill key={index} skill={language}></LinkSkill>
                 ))}
-              </ul> */}
+              </MineScrollShadowMotion>
             </div>
             {/* <Blobs_1></Blobs_1> */}
 
-            <div className="flex flex-col gap-y-8 relative overflow-hidden">
+            <div className="flex flex-col gap-y-8 relative overflow-hidden w-[80%] mx-auto">
               <h3
                 className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20 mb-[201px]`}
               >
                 Libraries
               </h3>
-              <motion.ul
-                // el calc es lo que hace que parezca infinito, debe ser el numero de items*2
-                className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute sm:top-[134px] top-[104px] left-0 w-[calc(100% * 18)] z-30 "
-                initial={{
-                  transform: "translateX(-50%)",
-                }}
-                animate={{
-                  transform: "translateX(0)",
-                }}
-                transition={{
-                  repeat: Infinity,
-                  // repeatType: "mirror",
-                  duration: 44,
-                  ease: "linear",
-                }}
-              >
+
+              <MineScrollShadowMotion direction={false}>
+                {" "}
                 <div className="w-[5px] h-full bg-emerald-600 rounded-xl"></div>
                 {languages.map((language, index) => (
                   <LinkSkill key={index} skill={language}></LinkSkill>
                 ))}
                 <div className="w-[5px] h-[121px] bg-emerald-600 rounded-xl"></div>
-
                 {languages.map((language, index) => (
                   <LinkSkill key={index} skill={language}></LinkSkill>
                 ))}
-              </motion.ul>
+              </MineScrollShadowMotion>
             </div>
+
             <Blobs_2></Blobs_2>
           </div>
-
-          {/* <ul className="flex flex-col block md:hidden">
-          <ScrollShadow className="w-[250px] h-[500px]">
-            {skills.map((skill, index) => (
-              <li
-                key={index}
-                className="w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-700 px-10 py-6 items-center mb-5"
-              >
-                <span className="text-[45px] ">{skill.img}</span>{" "}
-                <div>
-                  <span className="text-xl font-semibold text-white">
-                    {skill.name}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ScrollShadow>
-          </ul> */}
         </div>
       </div>
 
@@ -242,15 +192,44 @@ export default function Skills() {
 
 function LinkSkill({ skill }) {
   return (
-    <li className="w-[120px] sm:w-[230px] z-20 rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center">
+    <li className="w-[120px] sm:w-[230px] z-[60] rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center relative">
       {/* <span className="text-[25px] sm:text-[45px] ">{skill.img}</span>{" "} */}
       <img className="w-[25px] sm:w-[45px]" src={skill.img} alt="" />
       <div>
-        <span className="text-sm sm:text-xl font-semibold text-white">
+        <span className="text-sm sm:text-xl font-semibold text-white text-center">
           {skill.name}
         </span>
       </div>
     </li>
+  );
+}
+
+function MineScrollShadowMotion({ children, direction = true }) {
+  return (
+    <>
+      <motion.ul
+        // el calc es lo que hace que parezca infinito, debe ser el numero de items*2
+        className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute sm:top-[134px]  left-0 w-[calc(100% * 18)] z-30 "
+        initial={{
+          transform: direction ? "translateX(0)" : "translateX(-50%)",
+        }}
+        animate={{
+          transform: direction ? "translateX(-50%)" : "translateX(0)",
+        }}
+        transition={{
+          repeat: Infinity,
+          // repeatType: "mirror",
+          duration: direction ? 22 : 33,
+          ease: "linear",
+        }}
+      >
+        {children}
+      </motion.ul>
+
+      {/* degradados */}
+      <div className="absolute inset-y-0 left-0 w-[300px] bg-gradient-to-r from-cyan-800 dark:from-[#061f36] via-transparent to-transparent z-40 pointer-events-none"></div>
+      <div className="absolute inset-y-0 right-0 w-[300px] bg-gradient-to-l from-cyan-800 dark:from-[#061f36] via-transparent to-transparent z-40 pointer-events-none"></div>
+    </>
   );
 }
 
@@ -329,12 +308,12 @@ function Blobs_1() {
 
 function Blobs_2() {
   return (
-    <div className="hidden md:block">
+    <div className="hidden md:block z-40">
       <motion.div
         initial="hidden"
         whileInView="show"
         variants={slideAndRotate("left")}
-        className="absolute top-[130px] -left-[50px] z-10  "
+        className="absolute top-0 -left-[50px]   "
       >
         <motion.div
           id="blobs-1"
@@ -367,7 +346,7 @@ function Blobs_2() {
         initial="hidden"
         whileInView="show"
         variants={slideAndRotate("right")}
-        className="absolute top-[360px] right-[30px] z-10    "
+        className="absolute top-[190px] right-[30px]     "
       >
         <motion.div
           id="blobs-2"
@@ -393,11 +372,11 @@ function Blobs_2() {
         </motion.div>
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         initial="hidden"
         whileInView="show"
         variants={slideAndRotate("left")}
-        className="absolute top-[700px] right-50 z-20"
+        className="absolute top-[900px] right-50 "
       >
         <motion.div
           id="blobs-2"
@@ -424,72 +403,7 @@ function Blobs_2() {
             className="w-[350px] h-[350px] object-contain "
           />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 }
-
-// function Blobs_2() {
-//   return (
-//     <div className="hidden md:block">
-//             <motion.div
-//         initial="hidden"
-//         whileInView="show"
-//         variants={slideAndRotate("left")}
-//         className="absolute top-0 -left-36 z-10  "
-//       >
-
-//       </motion.div>
-
-//       <motion.div
-//         id="blobs-1"
-//         style={{
-//           transformStyle: "preserve-3d",
-//         }}
-//         initial={{
-//           transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-//         }}
-//         animate={{
-//           transform: "translateZ(32px) translateY(-18px) translateX(18px)",
-//         }}
-//         transition={{
-//           repeat: Infinity,
-//           repeatType: "mirror",
-//           duration: 2,
-//           ease: "easeInOut",
-//           delay: 0.5,
-//         }}
-//         className="absolute top-[120px] -left-[200px] z-10  "
-//       >
-//         <img
-//           src="/blob (1).svg"
-//           alt=""
-//           className="w-[400px] h-[400px]  object-contain"
-//         />
-//       </motion.div>
-
-//       {/* <motion.div
-//         id="blobs-2"
-//         style={{
-//           transformStyle: "preserve-3d",
-//         }}
-//         initial={{
-//           transform: "translateZ(32px) translateY(-18px) translateX(18px)",
-//         }}
-//         animate={{
-//           transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-//         }}
-//         transition={{
-//           repeat: Infinity,
-//           repeatType: "mirror",
-//           duration: 2,
-//           ease: "easeInOut",
-//           delay: 1,
-//         }}
-//         className="absolute top-[260px] right-[30px] z-10  "
-//       >
-//         <img src="/blob.svg" alt="" className="w-[400px] h-[400px]  " />
-//       </motion.div> */}
-//     </div>
-//   );
-// }

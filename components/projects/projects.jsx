@@ -9,18 +9,33 @@ import "./projects.css";
 
 const arrProjects = [
   {
-    name: "Amazon 2.0",
+    name: "Animal Crossing app",
     description:
-      "This is a page imitating the amazon website, including payments, global status usage and login.",
-    img: "/project-1.png",
-    url: "https://amazon-2-0-nextjs-r.vercel.app/",
+      "It is a landing page for an ecommerce, but I said a landing page because it doesn't have functions, it is only to show things",
+    img: "/animalCrossing.png",
+    url: "https://ruben-pagina-animal-crossing.netlify.app/",
   },
+
   {
     name: "Notas de palabras",
     description:
       "This page was made to help me to learn English, only you need to create an account and create your own words.",
     img: "/project-2.png",
     url: "https://notasdepalabras.vercel.app/",
+  },
+  {
+    name: "Tenis App",
+    description:
+      "It is a landing page for an ecommerce, but I said a landing page because it doesn't have functions, it is only to show things",
+    img: "/tenisapp.png",
+    url: "https://tenisapp.netlify.app",
+  },
+  {
+    name: "Amazon 2.0",
+    description:
+      "This is a page imitating the amazon website, including payments, global status usage and login.",
+    img: "/project-1.png",
+    url: "https://amazon-2-0-nextjs-r.vercel.app/",
   },
 ];
 
@@ -47,8 +62,8 @@ export default function projects() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{
-          duration: .6,
-          delay:0.3
+          duration: 0.6,
+          delay: 0.3,
         }}
       >
         <motion.div
@@ -79,7 +94,7 @@ export default function projects() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{
-          duration: .6,
+          duration: 0.6,
         }}
       >
         <motion.div

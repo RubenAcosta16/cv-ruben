@@ -42,7 +42,7 @@ export default function About() {
           variants={fadeIn("left", "tween", 0.2, 0.3)} //
         >
           <motion.p
-            className="sm:text-lg text-[13px] ml-20 text-stone-300"
+            className="sm:text-lg text-[13px] ml-20 text-stone-500 dark:text-stone-300"
             initial="hidden"
             whileInView="show"
             variants={fadeIn("down", "tween", 0.6, 0.3)}
