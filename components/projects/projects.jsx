@@ -58,7 +58,7 @@ export default function projects() {
 
       {/* figuras flotando */}
       <motion.div
-        className="absolute top-[470px] lg:top-[330px] left-0 z-10 hidden sm:block"
+        className="absolute top-[470px]  left-0 z-10 hidden sm:block"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{

@@ -83,7 +83,7 @@ export default function NavLink({ link, setIsActive, index }) {
             whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
           >
             <li className={` flex-auto hoverDarkModeIcon`}>
-              <div className="flex flex-row justify-center text-[20px] items-center gap-[15px]">
+              <div className="flex flex-row justify-center text-[22px] md:text-[20px] items-center gap-[15px]">
                 {link.name}
               </div>
             </li>

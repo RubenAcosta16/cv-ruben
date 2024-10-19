@@ -60,7 +60,7 @@ const languages = [
     name: "MongoDb",
     img: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg",
   },
-  // {
+  // { 
   //   name: "Stripe",
   //   img: "https://cdn.iconscout.com/icon/free/png-256/free-stripe-2-498440.png?f=webp",
   // },
@@ -129,9 +129,9 @@ export default function Skills() {
           {/* fin levitar */}
 
           <div className="flex flex-col gap-y-10 w-full">
-          <div className="flex flex-col gap-y-8 relative overflow-hidden w-[80%] mx-auto">
+          <div className="flex flex-col gap-y-2 relative overflow-hidden w-[80%] mx-auto">
               <h3
-                className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20 mb-[201px]`}
+                className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-50 mb-[180px]`}
               >
                 Languages
               </h3>
@@ -150,9 +150,9 @@ export default function Skills() {
             </div>
             {/* <Blobs_1></Blobs_1> */}
 
-            <div className="flex flex-col gap-y-8 relative overflow-hidden w-[80%] mx-auto">
+            <div className="flex flex-col gap-y-2 relative overflow-hidden w-[80%] mx-auto">
               <h3
-                className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-20 mb-[201px]`}
+                className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-50 mb-[180px]`}
               >
                 Libraries
               </h3>
@@ -209,7 +209,7 @@ function MineScrollShadowMotion({ children, direction = true }) {
     <>
       <motion.ul
         // el calc es lo que hace que parezca infinito, debe ser el numero de items*2
-        className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute sm:top-[134px]  left-0 w-[calc(100% * 18)] z-30 "
+        className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[80px]  left-0 w-[calc(100% * 18)] z-30 "
         initial={{
           transform: direction ? "translateX(0)" : "translateX(-50%)",
         }}
@@ -227,84 +227,12 @@ function MineScrollShadowMotion({ children, direction = true }) {
       </motion.ul>
 
       {/* degradados */}
-      <div className="absolute inset-y-0 left-0 w-[300px] bg-gradient-to-r from-cyan-800 dark:from-[#061f36] via-transparent to-transparent z-40 pointer-events-none"></div>
-      <div className="absolute inset-y-0 right-0 w-[300px] bg-gradient-to-l from-cyan-800 dark:from-[#061f36] via-transparent to-transparent z-40 pointer-events-none"></div>
+      <div className="absolute inset-y-0 left-0 w-[70px] sm:w-[300px] bg-gradient-to-r from-cyan-800 dark:from-[#061f36] via-transparent to-transparent z-40 pointer-events-none"></div>
+      <div className="absolute inset-y-0 right-0 w-[70px] sm:w-[300px]  bg-gradient-to-l from-cyan-800 dark:from-[#061f36] via-transparent to-transparent z-40 pointer-events-none"></div>
     </>
   );
 }
 
-function Blobs_1() {
-  return (
-    <div className="hidden md:block">
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        variants={slideAndRotate("left")}
-        className="absolute top-0 -left-36 z-10  "
-      >
-        <motion.div
-          id="blobs-1"
-          style={{
-            transformStyle: "preserve-3d",
-          }}
-          initial={{
-            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-          }}
-          animate={{
-            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "mirror",
-            duration: 2,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-          className=""
-        >
-          <img
-            src="/blob (3).svg"
-            alt=""
-            className="w-[300px] h-[300px]  object-contain"
-          />
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        variants={slideAndRotate("right")}
-        className="absolute top-[100px] -right-28 z-10"
-      >
-        <motion.div
-          id="blobs-2"
-          style={{
-            transformStyle: "preserve-3d",
-          }}
-          initial={{
-            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
-          }}
-          animate={{
-            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "mirror",
-            duration: 2,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        >
-          <img
-            src="/blob (4).svg"
-            alt=""
-            className="w-[350px] h-[350px] object-contain "
-          />
-        </motion.div>
-      </motion.div>
-    </div>
-  );
-}
 
 function Blobs_2() {
   return (
@@ -313,7 +241,7 @@ function Blobs_2() {
         initial="hidden"
         whileInView="show"
         variants={slideAndRotate("left")}
-        className="absolute top-0 -left-[50px]   "
+        className="absolute top-[120px] -left-[50px]   "
       >
         <motion.div
           id="blobs-1"
@@ -372,38 +300,8 @@ function Blobs_2() {
         </motion.div>
       </motion.div>
 
-      {/* <motion.div
-        initial="hidden"
-        whileInView="show"
-        variants={slideAndRotate("left")}
-        className="absolute top-[900px] right-50 "
-      >
-        <motion.div
-          id="blobs-2"
-          style={{
-            transformStyle: "preserve-3d",
-          }}
-          initial={{
-            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
-          }}
-          animate={{
-            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-          }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "mirror",
-            duration: 2,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        >
-          <img
-            src="/blob (4).svg"
-            alt=""
-            className="w-[350px] h-[350px] object-contain "
-          />
-        </motion.div>
-      </motion.div> */}
+      
     </div>
   );
 }
+ 
