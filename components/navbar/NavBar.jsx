@@ -63,7 +63,7 @@ export default function NavBar() {
 
   return (
     <div
-      className={`${poppins.className} py-3 relative flex flex-row justify-between z-[60] relative text-zinc-100`}
+      className={`${poppins.className} py-3 relative flex flex-row justify-between z-[70] relative text-zinc-100`}
     >
       {/* icon button */}
       <Link
