@@ -5,13 +5,15 @@ import { motion } from "framer-motion";
 
 import { Poppins } from "next/font/google";
 
-import Link from "next/link"; 
+import Link from "next/link";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["300", "500", "700"] });
 
-export default function NavLink({ link,setIsActive, index }) {
+
+
+export default function NavLink({ link, setIsActive, index }) {
   const linkRef = useRef(null);
-  index++; 
+  index++;
 
   const linkSlide = {
     initial: { x: 10, opacity: 0 },
@@ -27,33 +29,41 @@ export default function NavLink({ link,setIsActive, index }) {
     }),
   };
 
-  const element = (hovered) => (
-    <>
-      {link.blank ? (
-        <Link href={link.link} target="_blank">
-          <motion.li
-            className={`w-auto text-slate-300 text-2xl cursor-pointer hover:text-slate-100 ${poppins.className}`}
-            ref={linkRef}
-            whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
-          >
-            {link.name}
-          </motion.li>
-        </Link>
-      ) : (
-        <Link href={link.link}>
-          <motion.li
-            className={`w-auto text-slate-300 text-2xl cursor-pointer hover:text-slate-100 ${poppins.className}`}
-            ref={linkRef}
-            whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
-          >
-            {link.name}
-          </motion.li>
-        </Link>
-      )}
-    </>
-  );
+  // const element = (hovered) => (
+  //   <>
+  //     {link.blank ? (
+  //       <Link href={link.link} target="_blank">
+  //         <motion.li
+  //           className={`w-auto text-slate-300 text-2xl cursor-pointer hover:text-slate-100 ${poppins.className}`}
+  //           ref={linkRef}
+  //           whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
+  //         >
+  //           <li className={` flex-auto hoverDarkModeIcon`}>
+  //             <div className="flex flex-row justify-center text-[12px] items-center gap-[15px]">
+  //               {link.name}
+  //             </div>
+  //           </li>
+  //         </motion.li>
+  //       </Link>
+  //     ) : (
+  //       <Link href={link.link} target="_blank">
+  //         <motion.li
+  //           className={`w-auto text-slate-300 text-2xl cursor-pointer hover:text-slate-100 ${poppins.className}`}
+  //           ref={linkRef}
+  //           whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
+  //         >
+  //           <li className={` flex-auto hoverDarkModeIcon`}>
+  //             <div className="flex flex-row justify-center text-[12px] items-center gap-[15px]">
+  //               {link.name}
+  //             </div>
+  //           </li>
+  //         </motion.li>
+  //       </Link>
+  //     )}
+  //   </>
+  // );
 
-  const [hoverable, hovered] = useHover(element);
+  // const [hoverable, hovered] = useHover(element);
 
   return (
     <motion.div
@@ -62,13 +72,23 @@ export default function NavLink({ link,setIsActive, index }) {
       animate="enter"
       exit="exit"
       className="w-auto"
-      onClick={()=>{
-        setIsActive(false)
+      onClick={() => {
+        setIsActive(false);
       }}
     >
-      {/* // <div className="sm:w-2 h-2 bg-white rounded-full absolute left-[17%] mt-[11px]"></div> */}
-      {hovered && <div className=""></div>}
-      {hoverable}
+       <Link href={link.link} target={link.blank?"_blank":""}>
+          <motion.li
+            className={`w-auto text-slate-300 text-2xl cursor-pointer hover:text-slate-100 ${poppins.className}`}
+            ref={linkRef}
+            whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
+          >
+            <li className={` flex-auto hoverDarkModeIcon`}>
+              <div className="flex flex-row justify-center text-[20px] items-center gap-[15px]">
+                {link.name}
+              </div>
+            </li>
+          </motion.li>
+        </Link>
     </motion.div>
   );
 }

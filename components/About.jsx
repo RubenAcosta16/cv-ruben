@@ -31,7 +31,7 @@ export default function About() {
   // }, 5000);
 
   return (
-    <div className="backgroundDot dark:bg-slate-900  w-full pb-24 lg:pb-32 flex flex-col justify-center items-center z-0 relative text-black overflow-hidden">
+    <div id="about" className="backgroundDot dark:bg-slate-900  w-full pb-24 lg:pb-32 flex flex-col justify-center items-center z-0 relative text-black overflow-hidden">
       <div className="z-50 xl:z-30 flex flex-col justify-center items-center overflow-hidden">
         <motion.div
           className="p-9 bg-white dark:bg-slate-900 text-black dark:text-slate-100 my-32 md:w-auto sm:w-[400px] w-[300px]"

@@ -121,7 +121,7 @@ export default function Contact({theme}) {
   }
 
   return (
-    <div className="flex-center lg:-mt-28">
+    <div id="contact" className="flex-center lg:-mt-28">
       {/* <div className="shadow w-40 h-60 dot" style={{boxShadow:"inset 0 0 20px rgba(0, 0, 0, 0.5)"}}></div> */}
 
       <div

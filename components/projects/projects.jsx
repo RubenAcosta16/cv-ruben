@@ -41,7 +41,7 @@ const arrProjects = [
 
 export default function projects() {
   return (
-    <div
+    <div id="projects"
       className={`p-12 pt-40 pb-52 flex flex-col backgroundCross dark:bg-slate-900 relative -top-44  ${poppins.className} relative`}
     >
       {/* usar next ui para el carousel */}

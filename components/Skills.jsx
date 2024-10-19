@@ -68,7 +68,7 @@ const languages = [
 
 export default function Skills() {
   return (
-    <div className="flex flex-col relative -top-24 ">
+    <div id="skills" className="flex flex-col relative -top-24 ">
       {/* el svg */}
       {/* error caundo esta a menos de 358px */}
       <div className="relative lg:-top-32 sm:-top-14 top-1 z-10 w-full h-20">

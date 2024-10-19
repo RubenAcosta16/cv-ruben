@@ -57,22 +57,22 @@ export default function Nav({ handleChangeTheme, currentTheme, setIsActive }) {
   const navItems = [
     {
       name: "About me",
-      link: "/auth/login",
+      link: "#about",
       blank: false,
     },
     {
       name: "Skills",
-      link: "/auth/login",
+      link: "#skills",
       blank: false,
     },
     {
       name: "Projects",
-      link: "/auth/login",
+      link: "#projects",
       blank: false,
     },
     {
       name: "Contact me",
-      link: "/auth/login",
+      link: "#contact",
       blank: false,
     },
   ];
