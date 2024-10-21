@@ -9,7 +9,6 @@ import SlideContainer from "./Skills/SlideContainer";
 
 import ButtonSlide from "./Skills/ButtonSlide";
 
-// me chingue la rama dev, has otra
 // slide arriba asi como esta y abajo contrario
 // actualizar textos en proyectos que añadi
 // mejorar textos o gramatica
