@@ -9,10 +9,10 @@ import SlideContainer from "./Skills/SlideContainer";
 
 import ButtonSlide from "./Skills/ButtonSlide";
 
-// links no tan separados
+// me chingue la rama dev, has otra
+// slide arriba asi como esta y abajo contrario
 // actualizar textos en proyectos que añadi
 // mejorar textos o gramatica
-// bug en movil parrafo i am
 
 import { fadeIn, slideAndRotate } from "../utils/motion";
 
