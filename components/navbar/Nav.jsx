@@ -22,7 +22,6 @@ export default function Nav({ handleChangeTheme, currentTheme, setIsActive }) {
 
   // console.log(status)
 
-
   const iconLi = "size-[22px] m-auto";
 
   const shadow = { textShadow: "1px 1px 3px rgba(0,0,0,0.7)" };
@@ -266,7 +265,7 @@ export default function Nav({ handleChangeTheme, currentTheme, setIsActive }) {
         style={widthDiv()}
         className={` flex flex-col justify-center items-center `}
       >
-        <ul className="h-1/2 flex flex-col justify-center gap-14 mt-10">
+        <ul className="h-1/2 flex flex-col justify-center gap-12 mt-10">
           <motion.button
             onClick={animations}
             className="sm:text-[25px] text-[30px] fill-white absolute right-24 top-[26px]"

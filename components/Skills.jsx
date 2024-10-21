@@ -1,7 +1,18 @@
-import { motion } from "framer-motion";
+"use client";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Poppins, Nunito } from "@next/font/google";
-import { ScrollShadow } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import Image from "next/image";
+
+import SlideContainer from "./Skills/SlideContainer";
+
+import ButtonSlide from "./Skills/ButtonSlide";
+
+// links no tan separados
+// actualizar textos en proyectos que añadi
+// mejorar textos o gramatica
+// bug en movil parrafo i am
 
 import { fadeIn, slideAndRotate } from "../utils/motion";
 
@@ -60,13 +71,15 @@ const languages = [
     name: "MongoDb",
     img: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg",
   },
-  // { 
+  // {
   //   name: "Stripe",
   //   img: "https://cdn.iconscout.com/icon/free/png-256/free-stripe-2-498440.png?f=webp",
   // },
 ];
 
 export default function Skills() {
+  const [skillsButton, setSkillsButton] = useState(false);
+  const [languagesButton, setLanguagesButton] = useState(false);
   return (
     <div id="skills" className="flex flex-col relative -top-24 ">
       {/* el svg */}
@@ -129,46 +142,24 @@ export default function Skills() {
           {/* fin levitar */}
 
           <div className="flex flex-col gap-y-10 w-full">
-          <div className="flex flex-col gap-y-2 relative overflow-hidden w-[80%] mx-auto">
-              <h3
-                className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-50 mb-[180px]`}
-              >
-                Languages
-              </h3>
+            <SlideContainer
+              skills={skills}
+              skillsButton={skillsButton}
+              setSkillsButton={setSkillsButton}
+            >
+              Languages
+            </SlideContainer>
 
-              <MineScrollShadowMotion>
-                {" "}
-                <div className="w-[5px] h-full bg-emerald-600 rounded-xl"></div>
-                {skills.map((language, index) => (
-                  <LinkSkill key={index} skill={language}></LinkSkill>
-                ))}
-                <div className="w-[5px] h-[121px] bg-emerald-600 rounded-xl"></div>
-                {skills.map((language, index) => (
-                  <LinkSkill key={index} skill={language}></LinkSkill>
-                ))}
-              </MineScrollShadowMotion>
-            </div>
             {/* <Blobs_1></Blobs_1> */}
 
-            <div className="flex flex-col gap-y-2 relative overflow-hidden w-[80%] mx-auto">
-              <h3
-                className={`text-center font-bold text-[36px] text-sky-200 dark:text-sky-500 ${poppins.className} z-50 mb-[180px]`}
-              >
-                Libraries
-              </h3>
-
-              <MineScrollShadowMotion direction={false}>
-                {" "}
-                <div className="w-[5px] h-full bg-emerald-600 rounded-xl"></div>
-                {languages.map((language, index) => (
-                  <LinkSkill key={index} skill={language}></LinkSkill>
-                ))}
-                <div className="w-[5px] h-[121px] bg-emerald-600 rounded-xl"></div>
-                {languages.map((language, index) => (
-                  <LinkSkill key={index} skill={language}></LinkSkill>
-                ))}
-              </MineScrollShadowMotion>
-            </div>
+            <SlideContainer
+              skills={languages}
+              skillsButton={languagesButton}
+              setSkillsButton={setLanguagesButton}
+              direction={false}
+            >
+              Libraries
+            </SlideContainer>
 
             <Blobs_2></Blobs_2>
           </div>
@@ -190,9 +181,13 @@ export default function Skills() {
   );
 }
 
+function Slide() {
+  return <div>Skills</div>;
+}
+
 function LinkSkill({ skill }) {
   return (
-    <li className="w-[120px] sm:w-[230px] z-[60] rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center relative">
+    <li className="w-[120px] sm:w-[230px] z-[60] rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center relative mx-auto">
       {/* <span className="text-[25px] sm:text-[45px] ">{skill.img}</span>{" "} */}
       <img className="w-[25px] sm:w-[45px]" src={skill.img} alt="" />
       <div>
@@ -209,7 +204,7 @@ function MineScrollShadowMotion({ children, direction = true }) {
     <>
       <motion.ul
         // el calc es lo que hace que parezca infinito, debe ser el numero de items*2
-        className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[80px]  left-0 w-[calc(100% * 18)] z-30 "
+        className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[110px]  left-0 w-[calc(100% * 18)] z-30 "
         initial={{
           transform: direction ? "translateX(0)" : "translateX(-50%)",
         }}
@@ -232,7 +227,6 @@ function MineScrollShadowMotion({ children, direction = true }) {
     </>
   );
 }
-
 
 function Blobs_2() {
   return (
@@ -299,9 +293,6 @@ function Blobs_2() {
           <img src="/blob.svg" alt="" className="w-[400px] h-[400px]  " />
         </motion.div>
       </motion.div>
-
-      
     </div>
   );
 }
- 

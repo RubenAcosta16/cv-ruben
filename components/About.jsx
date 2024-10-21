@@ -80,7 +80,7 @@ export default function About() {
         {/* levitar */}
         <div className="mb-16 -mt-[70px] relative ">
           <div
-            className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[108px] border-xl rounded-lg "
+            className="absolute top-[7px] left-[13px] w-[180px] sm:w-[424px] opacity-0 sm:opacity-100 h-[108px] border-xl rounded-lg "
             style={{
               // boxShadow: "13px 15px  rgb(14 116 144)",
               backgroundColor: "rgb(14 116 144)",
@@ -103,7 +103,7 @@ export default function About() {
               duration: 2,
               ease: "easeInOut",
             }}
-            className={`p-3 bg-sky-950 dark:bg-sky-900 text-xl border-xl text-white font-normal rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
+            className={`p-3 bg-sky-950 dark:bg-sky-900 text-xl border-xl text-white font-normal rounded-lg w-[280px] sm:w-[424px] ${nunito.className}`}
           >
             Hi, I am a 19 year old{" "}
             <span className="strongText">programmer</span>, passionate about
