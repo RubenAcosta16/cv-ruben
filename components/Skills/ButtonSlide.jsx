@@ -3,13 +3,21 @@ import { useState } from "react";
 import { Button } from "@nextui-org/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ButtonSlide({children,skillsButton,setSkillsButton}) {
+export default function ButtonSlide({
+  children,
+  skillsButton,
+  setSkillsButton,
+  click,
+}) {
   return (
     <>
       <Button
         color="primary"
         variant="light"
-        onClick={() => setSkillsButton(!skillsButton)}
+        onClick={async () => {
+          setSkillsButton(!skillsButton);
+          await click();
+        }}
         className="w-[120px] text-center rounded-full relative overflow-hidden"
       >
         <AnimatePresence initial={false}>

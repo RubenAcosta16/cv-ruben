@@ -94,7 +94,7 @@ export default function Skills() {
         </svg>
       </div>
 
-      <div className={`w-full bg-waves ${poppins.className}`}>
+      <div className={`w-full bg-waves ${poppins.className} pb-[30px] md:pb-0`}>
         <h2 className="text-[50px] font-extrabold text-center mb-16 text-white relative z-20">
           Skills
         </h2>
@@ -178,54 +178,9 @@ export default function Skills() {
       </div>
     </div>
   );
-}
+} 
 
-function Slide() {
-  return <div>Skills</div>;
-}
 
-function LinkSkill({ skill }) {
-  return (
-    <li className="w-[120px] sm:w-[230px] z-[60] rounded-xl flex flex-col justify-center bg-cyan-600 dark:bg-cyan-900 px-10 py-6 items-center relative mx-auto">
-      {/* <span className="text-[25px] sm:text-[45px] ">{skill.img}</span>{" "} */}
-      <img className="w-[25px] sm:w-[45px]" src={skill.img} alt="" />
-      <div>
-        <span className="text-sm sm:text-xl font-semibold text-white text-center">
-          {skill.name}
-        </span>
-      </div>
-    </li>
-  );
-}
-
-function MineScrollShadowMotion({ children, direction = true }) {
-  return (
-    <>
-      <motion.ul
-        // el calc es lo que hace que parezca infinito, debe ser el numero de items*2
-        className="flex flex-row gap-x-4 sm:gap-x-10 px-4 absolute top-[110px]  left-0 w-[calc(100% * 18)] z-30 "
-        initial={{
-          transform: direction ? "translateX(0)" : "translateX(-50%)",
-        }}
-        animate={{
-          transform: direction ? "translateX(-50%)" : "translateX(0)",
-        }}
-        transition={{
-          repeat: Infinity,
-          // repeatType: "mirror",
-          duration: direction ? 22 : 33,
-          ease: "linear",
-        }}
-      >
-        {children}
-      </motion.ul>
-
-      {/* degradados */}
-      <div className="absolute inset-y-0 left-0 w-[70px] sm:w-[300px] bg-gradient-to-r from-cyan-800 dark:from-[#061f36] via-transparent to-transparent z-40 pointer-events-none"></div>
-      <div className="absolute inset-y-0 right-0 w-[70px] sm:w-[300px]  bg-gradient-to-l from-cyan-800 dark:from-[#061f36] via-transparent to-transparent z-40 pointer-events-none"></div>
-    </>
-  );
-}
 
 function Blobs_2() {
   return (
