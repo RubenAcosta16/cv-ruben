@@ -15,7 +15,7 @@ export default function SlideContainer({
   const [scope, animate] = useAnimate();
 
   const divGrid = (
-    <div className="grid grid-cols-2 md:grid-cols-3 z-30 gap-4 w-auto mx-auto">
+    <div className="grid grid-cols-2 md:grid-cols-3 relative z-30 gap-4 w-auto mx-auto">
       {skills.map((language, index) => (
         <LinkSkill key={index} skill={language}></LinkSkill>
       ))}
