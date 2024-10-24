@@ -1,4 +1,4 @@
-import ProjectLink from "./projectLink";
+// import ProjectLink from "./projectLink";
 import { motion } from "framer-motion";
 import { Poppins, Nunito } from "@next/font/google";
 
@@ -7,54 +7,55 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 import "./projects.css";
 
-const arrProjects = [
-  {
-    name: "Animal Crossing app",
-    description:
-      "It is a landing page for an ecommerce, but I said a landing page because it doesn't have functions, it is only to show things",
-    img: "/animalCrossing.png",
-    url: "https://ruben-pagina-animal-crossing.netlify.app/",
-  },
 
-  {
-    name: "Notas de palabras",
-    description:
-      "This page was made to help me to learn English, only you need to create an account and create your own words.",
-    img: "/project-2.png",
-    url: "https://notasdepalabras.vercel.app/",
-  },
-  {
-    name: "Tenis App",
-    description:
-      "It is a landing page for an ecommerce, but I said a landing page because it doesn't have functions, it is only to show things",
-    img: "/tenisapp.png",
-    url: "https://tenisapp.netlify.app",
-  },
-  {
-    name: "Amazon 2.0",
-    description:
-      "This is a page imitating the amazon website, including payments, global status usage and login.",
-    img: "/project-1.png",
-    url: "https://amazon-2-0-nextjs-r.vercel.app/",
-  },
-];
 
 export default function projects() {
   return (
     <div id="projects"
       className={`p-12 pt-40 pb-52 flex flex-col backgroundCross dark:bg-slate-900 relative -top-44  ${poppins.className} relative`}
     >
-      {/* usar next ui para el carousel */}
-      <h1 className="text-[56px] font-extrabold text-center mb-16 text-black dark:text-slate-100 relative z-20">
-        Projects
-      </h1>
-      <div className="flex-center">
-        <ul className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-16">
-          {arrProjects.map((project, index) => (
-            <ProjectLink key={index} project={project}></ProjectLink>
-          ))}
-        </ul>
-      </div>
+          {/* levitar */}
+          <div className="relative z-50">
+            <div
+              className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[108px] border-xl rounded-lg"
+              style={{
+                // boxShadow: "13px 15px  rgb(14 116 144)",
+                backgroundColor: "rgb(14 116 144)",
+              }}
+            ></div>
+            <motion.p
+              style={{
+                transformStyle: "preserve-3d",
+              }}
+              initial={{
+                transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+              }}
+              animate={{
+                transform: "translateZ(32px) translateY(-8px) translateX(8px)",
+              }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "mirror",
+                duration: 2,
+                ease: "easeInOut",
+              }}
+              className={`p-3 bg-sky-950 dark:bg-sky-900 text-lg border-xl text-white rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
+            >
+              Hello! My name is Ruben Acosta. I’m a Frontend Developer and{" "}
+              <span className="strongText">UI Designer</span>. I specialize in
+              building visually appealing and highly functional user interfaces.
+              Here, I showcase <span className="strongText">my projects</span>,
+              professional experience, and share insights from my{" "}
+              <span className="strongText">journey in web development.</span>
+              {/* One of the things I <span className="strongText">like</span> the
+              most is to build and design things, and with programming{" "}
+              <span className="strongText">I can do all that</span>, that is why
+              I like it. */}
+              {/* Since I was a teenager I learned to program and design, and learning these technologies
+              has forced me to adapt to different environments. */}
+            </motion.p>
+          </div>
+          {/* fin levitar */}
 
       {/* figuras flotando */}
       <motion.div

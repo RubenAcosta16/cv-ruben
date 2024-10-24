@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ProjectLink from "./projects/projectLink";
+
 import { Poppins, Nunito } from "@next/font/google";
 import { Button } from "@nextui-org/react";
 import Image from "next/image";
@@ -9,7 +11,8 @@ import SlideContainer from "./Skills/SlideContainer";
 
 import ButtonSlide from "./Skills/ButtonSlide";
 
-// slide arriba asi como esta y abajo contrario
+// el blob de abajo no aparece
+// creo que este blob tiene que ver con el bug del final de la pagina
 // actualizar textos en proyectos que añadi
 // mejorar textos o gramatica
 
@@ -17,6 +20,38 @@ import { fadeIn, slideAndRotate } from "../utils/motion";
 
 const nunito = Nunito({ subsets: ["latin"], weight: ["500", "600", "700"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
+
+const arrProjects = [
+  {
+    name: "Animal Crossing app",
+    description:
+      "It is a landing page for an ecommerce, but I said a landing page because it doesn't have functions, it is only to show things",
+    img: "/animalCrossing.png",
+    url: "https://ruben-pagina-animal-crossing.netlify.app/",
+  },
+
+  {
+    name: "Notas de palabras",
+    description:
+      "This page was made to help me to learn English, only you need to create an account and create your own words.",
+    img: "/project-2.png",
+    url: "https://notasdepalabras.vercel.app/",
+  },
+  {
+    name: "Tenis App",
+    description:
+      "It is a landing page for an ecommerce, but I said a landing page because it doesn't have functions, it is only to show things",
+    img: "/tenisapp.png",
+    url: "https://tenisapp.netlify.app",
+  },
+  {
+    name: "Amazon 2.0",
+    description:
+      "This is a page imitating the amazon website, including payments, global status usage and login.",
+    img: "/project-1.png",
+    url: "https://amazon-2-0-nextjs-r.vercel.app/",
+  },
+];
 
 const skills = [
   {
@@ -95,52 +130,26 @@ export default function Skills() {
       </div>
 
       <div className={`w-full bg-waves ${poppins.className} pb-[30px] md:pb-0`}>
-        <h2 className="text-[50px] font-extrabold text-center mb-16 text-white relative z-20">
-          Skills
-        </h2>
-
         {/* cada skill que tenga un tap */}
-        <div className=" flex justify-center items-center flex-col gap-20">
+        <div className=" flex justify-center items-center flex-col ">
           {/* insertar una figura diferente asi como en mi cv antiguo */}
 
-          {/* levitar */}
-          <div className="relative z-50">
-            <div
-              className="absolute top-[7px] left-[13px] w-[300px] sm:w-[424px] opacity-0 sm:opacity-100 h-[108px] border-xl rounded-lg"
-              style={{
-                // boxShadow: "13px 15px  rgb(14 116 144)",
-                backgroundColor: "rgb(14 116 144)",
-              }}
-            ></div>
-            <motion.p
-              style={{
-                transformStyle: "preserve-3d",
-              }}
-              initial={{
-                transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
-              }}
-              animate={{
-                transform: "translateZ(32px) translateY(-8px) translateX(8px)",
-              }}
-              transition={{
-                repeat: Infinity,
-                repeatType: "mirror",
-                duration: 2,
-                ease: "easeInOut",
-              }}
-              className={`p-3 bg-sky-950 dark:bg-sky-900 text-lg border-xl text-white rounded-lg w-[300px] sm:w-[424px] ${nunito.className}`}
-            >
-              One of the things I <span className="strongText">like</span> the
-              most is to build and design things, and with programming{" "}
-              <span className="strongText">I can do all that</span>, that is why
-              I like it.
-              {/* Since I was a teenager I learned to program and design, and learning these technologies
-              has forced me to adapt to different environments. */}
-            </motion.p>
+          {/* usar next ui para el carousel */}
+          <h2 className="text-[65px] font-extrabold text-center mb-10 text-black dark:text-slate-100 relative z-20">
+            Projects
+          </h2>
+          <div className="flex-center">
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-16">
+              {arrProjects.map((project, index) => (
+                <ProjectLink key={index} project={project}></ProjectLink>
+              ))}
+            </ul>
           </div>
-          {/* fin levitar */}
 
-          <div className="flex flex-col gap-y-10 w-full">
+          <h2 className="text-[65px] font-extrabold text-center mt-28 mb-4 text-white relative z-20">
+            Skills
+          </h2>
+          <div className="relative flex flex-col gap-y-6 md:gap-y-[120px] w-full">
             <SlideContainer
               skills={skills}
               skillsButton={skillsButton}
@@ -178,9 +187,7 @@ export default function Skills() {
       </div>
     </div>
   );
-} 
-
-
+}
 
 function Blobs_2() {
   return (
@@ -189,7 +196,7 @@ function Blobs_2() {
         initial="hidden"
         whileInView="show"
         variants={slideAndRotate("left")}
-        className="absolute top-[120px] -left-[50px]   "
+        className="absolute top-[-225px] -left-[50px]   "
       >
         <motion.div
           id="blobs-1"
@@ -222,7 +229,7 @@ function Blobs_2() {
         initial="hidden"
         whileInView="show"
         variants={slideAndRotate("right")}
-        className="absolute top-[190px] right-[30px]     "
+        className="absolute top-[170px] right-0     "
       >
         <motion.div
           id="blobs-2"
