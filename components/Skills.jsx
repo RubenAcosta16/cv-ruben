@@ -4,12 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import ProjectLink from "./projects/projectLink";
 
 import { Poppins, Nunito } from "@next/font/google";
-import { Button } from "@nextui-org/react";
-import Image from "next/image";
+
 
 import SlideContainer from "./Skills/SlideContainer";
 
-import ButtonSlide from "./Skills/ButtonSlide";
+import Slider from './slider/Slider';
 
 // el blob de abajo no aparece
 // creo que este blob tiene que ver con el bug del final de la pagina
@@ -138,12 +137,16 @@ export default function Skills() {
           <h2 className="text-[65px] font-extrabold text-center mb-10 text-black dark:text-slate-100 relative z-20">
             Projects
           </h2>
-          <div className="flex-center">
-            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-16">
+          <div className="flex-center flex-col relative">
+            {/* <Blobs_3></Blobs_3> */}
+            {/* <ul className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-16">
               {arrProjects.map((project, index) => (
                 <ProjectLink key={index} project={project}></ProjectLink>
               ))}
-            </ul>
+            </ul> */}
+
+           
+            <Slider slides={arrProjects}></Slider>
           </div>
 
           <h2 className="text-[65px] font-extrabold text-center mt-28 mb-4 text-white relative z-20">
@@ -255,5 +258,74 @@ function Blobs_2() {
         </motion.div>
       </motion.div>
     </div>
+  );
+}
+
+function Blobs_3() {
+  return (
+    <>
+      {" "}
+      <motion.div
+        className="absolute top-[470px]  left-0 z-10 hidden sm:block"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          duration: 0.6,
+          delay: 0.3,
+        }}
+      >
+        <motion.div
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+          initial={{
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          }}
+          animate={{
+            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+          className=""
+        >
+          <img src="/blob (3).svg" alt="" className="w-[450px] h-[450px]" />
+        </motion.div>
+      </motion.div>
+      <motion.div
+        className="absolute top-[260px] right-[5%] z-10 hidden sm:block"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          duration: 0.6,
+        }}
+      >
+        <motion.div
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+          initial={{
+            transform: "translateZ(32px) translateY(-18px) translateX(18px)",
+          }}
+          animate={{
+            transform: "translateZ(4px) translateY(-2px) translateX(-2px)",
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 2,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className=""
+        >
+          <img src="/blob (4).svg" alt="" className="w-[350px] h-[350px]" />
+        </motion.div>
+      </motion.div>
+    </>
   );
 }

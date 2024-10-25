@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.10",
     "@next/font": "^13.5.5",
     "@nextui-org/react": "^2.1.13",
     "framer-motion": "^10.16.4",
