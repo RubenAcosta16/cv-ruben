@@ -5,10 +5,9 @@ import ProjectLink from "./projects/projectLink";
 
 import { Poppins, Nunito } from "@next/font/google";
 
-
 import SlideContainer from "./Skills/SlideContainer";
 
-import Slider from './slider/Slider';
+import Slider from "./sliderProjects/Slider";
 
 // el blob de abajo no aparece
 // creo que este blob tiene que ver con el bug del final de la pagina
@@ -137,7 +136,13 @@ export default function Skills() {
           <h2 className="text-[65px] font-extrabold text-center mb-10 text-black dark:text-slate-100 relative z-20">
             Projects
           </h2>
-          <div className="flex-center flex-col relative">
+          <p className="w-[70%]  md:w-[50%] text-center">
+            {" "}
+            Here, I showcase <span className="strongText">my projects</span>,
+            professional experience, and share insights from my{" "}
+            <span className="strongText">journey in web development.</span>
+          </p>
+          <div className="flex-center flex-col relative mt-5">
             {/* <Blobs_3></Blobs_3> */}
             {/* <ul className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-16">
               {arrProjects.map((project, index) => (
@@ -145,7 +150,6 @@ export default function Skills() {
               ))}
             </ul> */}
 
-           
             <Slider slides={arrProjects}></Slider>
           </div>
 

@@ -1,20 +1,7 @@
 import React, { useState } from "react";
-
 import ProjectLink from "../projects/projectLink";
 
 const Carousel = ({ slides }) => {
-  //   const slides = [
-  //     <div key={1} className="p-4 bg-blue-500 text-white flex items-center justify-center">
-  //       <h1 className="text-2xl">Contenido 1</h1>
-  //     </div>,
-  //     <div key={2} className="p-4 bg-green-500 text-white flex items-center justify-center">
-  //       <h1 className="text-2xl">Contenido 2</h1>
-  //     </div>,
-  //     <div key={3} className="p-4 bg-red-500 text-white flex items-center justify-center">
-  //       <h1 className="text-2xl">Contenido 3</h1>
-  //     </div>,
-  //   ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -39,39 +26,45 @@ const Carousel = ({ slides }) => {
   };
 
   return (
-    <div className="relative max-w-md mx-auto p-4 overflow-hidden">
+    <div className="relative max-w-screen-md mx-auto p-4 overflow-hidden">
       {/* Contenedor del carousel */}
       <div
         className={`flex transition-transform duration-500 ease-in-out ${
           isAnimating ? "transform" : ""
         }`}
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        style={{
+          transform: `translateX(-${
+            currentIndex * (100 / (window.innerWidth >= 1024 ? 2 : 1))
+          }%)`,
+        }}
       >
         {slides.map((slide, index) => (
-          <div key={index} className="min-w-full">
-            <ProjectLink  project={slide}></ProjectLink>
+          <div key={index} className="w-full md:w-1/2 flex-shrink-0">
+            <ProjectLink project={slide}></ProjectLink>
           </div>
         ))}
       </div>
 
-      {/* Botón Anterior */}
-      <button
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 p-2 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-60"
-        onClick={prevSlide}
-      >
-        &#8592;
-      </button>
 
-      {/* Botón Siguiente */}
-      <button
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-60"
-        onClick={nextSlide}
-      >
-        &#8594;
-      </button>
+        {/* Botón Anterior */}
+        <button
+          className="absolute top-1/2 left-[15%] md:left-1 transform -translate-y-1/2 p-2 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-60 transition duration-300 ease-in-out"
+          onClick={prevSlide}
+        >
+          &#8592;
+        </button>
+
+        {/* Botón Siguiente */}
+        <button
+          className="absolute top-1/2 right-[15%] md:right-1 transform -translate-y-1/2 p-2 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-60 transition duration-300 ease-in-out"
+          onClick={nextSlide}
+        >
+          &#8594;
+        </button>
+
 
       {/* Indicadores */}
-      <div className="flex justify-center mt-4 space-x-2">
+      <div className="flex justify-center mt-6 space-x-2">
         {slides.map((_, index) => (
           <div
             key={index}

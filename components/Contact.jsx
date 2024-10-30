@@ -233,7 +233,7 @@ function Blobs_1() {
         initial="hidden"
         whileInView="show"
         variants={slideAndRotate("right")}
-        className="absolute top-[50px] right-[-60px]     "
+        className="absolute top-[50px] right-[60px]     "
       >
         <motion.div
           id="blobs-2"

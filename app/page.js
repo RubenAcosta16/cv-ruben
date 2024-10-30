@@ -9,7 +9,7 @@ import Image from "next/image";
 import Navbar from "../components/navbar/NavBar";
 import About from "../components/About";
 import Skills from "../components/Skills";
-import Projects from "../components/projects/projects";
+import Projects from "../components/projects/MoreAboutMe";
 import Contact from "../components/Contact";
 
 export default function Home() {
