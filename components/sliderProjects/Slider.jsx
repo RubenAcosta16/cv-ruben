@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProjectLink from "../projects/projectLink";
 
 const Carousel = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [slideWidth, setSlideWidth] = useState(100); // Estado para el ancho de slide
+
+  useEffect(() => {
+    // Establece el ancho del slide basado en el tamaño de la ventana
+    const updateSlideWidth = () => {
+      setSlideWidth(window.innerWidth >= 1024 ? 50 : 100);
+    };
+    updateSlideWidth(); // Llama a la función inmediatamente
+    window.addEventListener("resize", updateSlideWidth); // Actualiza en redimensionar
+
+    return () => window.removeEventListener("resize", updateSlideWidth);
+  }, []);
 
   const goToSlide = (index) => {
     setIsAnimating(true);
     setTimeout(() => {
       setCurrentIndex(index);
       setIsAnimating(false);
-    }, 500); // Duración de la animación
+    }, 500);
   };
 
   const prevSlide = () => {
@@ -33,9 +45,7 @@ const Carousel = ({ slides }) => {
           isAnimating ? "transform" : ""
         }`}
         style={{
-          transform: `translateX(-${
-            currentIndex * (100 / (window.innerWidth >= 1024 ? 2 : 1))
-          }%)`,
+          transform: `translateX(-${currentIndex * slideWidth}%)`,
         }}
       >
         {slides.map((slide, index) => (
@@ -45,23 +55,21 @@ const Carousel = ({ slides }) => {
         ))}
       </div>
 
+      {/* Botón Anterior */}
+      <button
+        className="absolute top-1/2 left-[15%] md:left-1 transform -translate-y-1/2 p-2 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-60 transition duration-300 ease-in-out"
+        onClick={prevSlide}
+      >
+        &#8592;
+      </button>
 
-        {/* Botón Anterior */}
-        <button
-          className="absolute top-1/2 left-[15%] md:left-1 transform -translate-y-1/2 p-2 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-60 transition duration-300 ease-in-out"
-          onClick={prevSlide}
-        >
-          &#8592;
-        </button>
-
-        {/* Botón Siguiente */}
-        <button
-          className="absolute top-1/2 right-[15%] md:right-1 transform -translate-y-1/2 p-2 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-60 transition duration-300 ease-in-out"
-          onClick={nextSlide}
-        >
-          &#8594;
-        </button>
-
+      {/* Botón Siguiente */}
+      <button
+        className="absolute top-1/2 right-[15%] md:right-1 transform -translate-y-1/2 p-2 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-60 transition duration-300 ease-in-out"
+        onClick={nextSlide}
+      >
+        &#8594;
+      </button>
 
       {/* Indicadores */}
       <div className="flex justify-center mt-6 space-x-2">
