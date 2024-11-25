@@ -65,8 +65,8 @@ export default function projects() {
           that improve the user experience...”
         </p>
         
-        <Button className="mt-[30px] strongText rounded-full py-2 px-10"  color="primary"
-        variant="light">Download CV</Button>
+        <a href="/cv.pdf" className="block mt-[30px] strongText rounded-full py-2 px-10"  color="primary"
+        variant="light">Download CV</a>
       </div>
     </div>
   );

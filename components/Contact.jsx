@@ -220,7 +220,7 @@ export default function Contact({ theme }) {
         </form>
       </div>
 
-      <Blobs_1></Blobs_1>
+      {/* <Blobs_1></Blobs_1> */}
       <ToastContainer />
     </div>
   );
