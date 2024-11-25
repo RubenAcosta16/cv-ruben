@@ -21,6 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         {/* <Navbar></Navbar> */}
+        <Head> <link rel="shortcut icon" href="/logo.jpg" /></Head>
         <main>
         {children}
         </main>
